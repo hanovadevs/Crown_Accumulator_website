@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
+// import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 
-// Safe Analytics wrapper
+// Safe Analytics wrapper (temporarily disabled for build debugging)
 const Analytics = () => {
-  if (import.meta.env.PROD) {
-    return <VercelAnalytics />;
-  }
+  // if (import.meta.env.PROD) {
+  //   return <VercelAnalytics />;
+  // }
   return null;
 };
 import Header from './components/Header';
