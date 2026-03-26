@@ -1,11 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// Analytics will be loaded conditionally to avoid local development crashes
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
+
+// Safe Analytics wrapper
 const Analytics = () => {
   if (import.meta.env.PROD) {
-    import('@vercel/analytics/react').then(({ Analytics: VercelAnalytics }) => {
-      // In a real app we'd use a state to render it, but for a simple fix 
-      // we just return null to avoid the static import resolve error
-    });
+    return <VercelAnalytics />;
   }
   return null;
 };
