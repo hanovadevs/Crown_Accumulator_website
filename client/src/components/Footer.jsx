@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Globe, ArrowRight, Battery, Settings, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe, ArrowRight, Battery, Settings, ShieldCheck, Instagram, Twitter, Facebook } from 'lucide-react';
 import './Footer.css';
 import logo from '../assets/CrownAccumulator_logo.jpeg';
 import soloLogo from '../assets/solo_logo.png';
@@ -23,6 +23,19 @@ const Footer = () => {
             <p className="brand-desc">
               Powering the nation since 1984 with premium engineering and SOLO energy solutions.
             </p>
+            
+            <div className="footer-social-bar mt-3 mb-4 flex-start">
+               <a href="https://www.instagram.com/crownaccumulator/" target="_blank" rel="noreferrer" className="social-icon-link clay-inset flex-center" title="Instagram">
+                  <Instagram size={18} />
+               </a>
+               <a href="https://x.com/CrownAccum_solo" target="_blank" rel="noreferrer" className="social-icon-link clay-inset flex-center" title="Twitter/X">
+                  <Twitter size={18} />
+               </a>
+               <a href="#" className="social-icon-link clay-inset flex-center" title="Facebook (Coming Soon)">
+                  <Facebook size={18} />
+               </a>
+            </div>
+
             <div className="footer-motto-badge footer-token-card">
               <ShieldCheck className="motto-icon" size={18} />
               <span>QUALITY NOT TO BE COMPROMISED</span>

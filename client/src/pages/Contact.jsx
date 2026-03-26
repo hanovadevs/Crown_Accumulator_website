@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, Send, Building2, Zap } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Building2, Zap, Instagram, Twitter, Facebook } from 'lucide-react';
 import axios from 'axios';
 import ClayButton from '../components/ClayButton';
 import ClayCard from '../components/ClayCard';
@@ -59,7 +59,7 @@ const Contact = () => {
                 <h3>FACTORY</h3>
                 <p>55/28-C, Akber Colony Industrial Area, Momin Pura Road Daroghawala, Lahore.</p>
                 <div className="location-footer">
-                  <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="clay-button small-btn">View On Map</a>
+                  <a href="https://maps.app.goo.gl/maJNJRaDdKtBpjTn7" target="_blank" rel="noreferrer" className="clay-button small-btn">View On Map</a>
                 </div>
              </ClayCard>
 
@@ -68,7 +68,7 @@ const Contact = () => {
                 <h3>HEAD OFFICE</h3>
                 <p>Crown Accumulator 325 GT Road Darogha wala, Lahore</p>
                 <div className="location-footer">
-                  <a href="tel:+924236853522" className="clay-button small-btn">Call Office</a>
+                   <a href="https://maps.app.goo.gl/rje2uWVDeQbDBxUCA" target="_blank" rel="noreferrer" className="clay-button small-btn">View On Map</a>
                 </div>
              </ClayCard>
 
@@ -107,6 +107,21 @@ const Contact = () => {
                        </div>
                     </ClayCard>
                  </div>
+
+                  <div className="social-connect-box mt-5">
+                    <h5 className="mb-4">FOLLOW OUR LEGACY</h5>
+                    <div className="contact-social-bar flex-start">
+                       <a href="https://www.instagram.com/crownaccumulator/" target="_blank" rel="noreferrer" className="social-icon-link clay-inset flex-center" title="Instagram">
+                          <Instagram size={24} />
+                       </a>
+                       <a href="https://x.com/CrownAccum_solo" target="_blank" rel="noreferrer" className="social-icon-link clay-inset flex-center" title="Twitter/X">
+                          <Twitter size={24} />
+                       </a>
+                       <a href="#" className="social-icon-link clay-inset flex-center" title="Facebook (Coming Soon)">
+                          <Facebook size={24} />
+                       </a>
+                    </div>
+                  </div>
               </div>
 
               <div className="form-card-wrapper animate-slide-up">
