@@ -1,0 +1,225 @@
+:root {
+  --deep-blue: #0A1B44;
+  --rich-red: #D20000;
+  --pure-white: #FFFFFF;
+  --clay-shadow-light: inset 8px 8px 16px rgba(0, 0, 0, 0.05), inset -8px -8px 16px rgba(255, 255, 255, 0.9);
+  --clay-shadow-dark: 16px 16px 32px rgba(0, 0, 0, 0.1), -16px -16px 32px rgba(255, 255, 255, 1);
+  --clay-btn-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08), -8px -8px 16px rgba(255, 255, 255, 1);
+  --clay-btn-active: inset 6px 6px 12px rgba(0, 0, 0, 0.1), inset -6px -6px 12px rgba(255, 255, 255, 0.9);
+  --light-blue-bg: #f5f8ff;
+  --border-radius: 40px;
+  --font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+body {
+  background-color: var(--light-blue-bg);
+  background-image: 
+    radial-gradient(circle at 5% 5%, rgba(10, 27, 68, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 95% 95%, rgba(210, 0, 0, 0.04) 0%, transparent 40%),
+    linear-gradient(135deg, rgba(10, 27, 68, 0.012) 25%, transparent 25%, transparent 50%, rgba(10, 27, 68, 0.012) 50%, rgba(10, 27, 68, 0.012) 75%, transparent 75%, transparent);
+  background-size: 100% 100%, 100% 100%, 60px 60px;
+  background-attachment: fixed;
+  color: var(--deep-blue);
+  font-family: var(--font-family);
+  font-size: 15px; /* Added base size */
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+h1 { font-size: 2.7rem; line-height: 1.1; letter-spacing: -0.03em; }
+h2 { font-size: 2.2rem; line-height: 1.2; letter-spacing: -0.02em; }
+h3 { font-size: 1.6rem; line-height: 1.2; letter-spacing: -0.01em; }
+h4 { font-size: 1.2rem; line-height: 1.2; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-blue-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--deep-blue);
+  border-radius: 10px;
+  border: 3px solid var(--light-blue-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rich-red);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--deep-blue);
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Claymorphism Utilities */
+.clay-card {
+  background: var(--pure-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--clay-shadow-dark);
+  padding: 2.5rem;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.clay-card:hover {
+  transform: translateY(-5px);
+}
+
+.clay-inset {
+  background: var(--pure-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--clay-shadow-light);
+}
+
+.clay-button {
+  display: inline-block;
+  background: var(--pure-white);
+  color: var(--deep-blue);
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--clay-btn-shadow);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.clay-button:active {
+  box-shadow: var(--clay-btn-active);
+  transform: scale(0.98);
+}
+
+.clay-button.primary {
+  background: var(--deep-blue);
+  color: var(--pure-white);
+}
+
+.clay-button.accent {
+  background: var(--rich-red);
+  color: var(--pure-white);
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 1.5rem 0;
+}
+
+
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Advanced Reveals */
+.reveal {
+  opacity: 0;
+  filter: blur(10px);
+  transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.reveal-up { transform: translateY(40px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+
+.reveal.active {
+  opacity: 1;
+  transform: translate(0, 0);
+  filter: blur(0);
+}
+
+.animate-fade {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 1rem;
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  h1 { font-size: 1.8rem !important; }
+  h2 { font-size: 1.5rem !important; }
+  h3 { font-size: 1.2rem !important; }
+
+  .section {
+    padding: 1rem 0;
+  }
+}
+
+/* Button Enhancements */
+.clay-button.primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.clay-button.primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: rotate(45deg);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.clay-button.primary:hover::after {
+  left: 100%;
+}
+
+/* WhatsApp Pulse */
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-icon-bg {
+  animation: pulse 2s infinite;
+}
+
+
+

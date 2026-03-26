@@ -1,0 +1,219 @@
+.footer-professional {
+  background: var(--deep-blue);
+  color: #c9d1d9;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+  margin-top: 3rem;
+}
+
+
+@keyframes sweep {
+  0% { transform: translateX(-100%); opacity: 0.3; }
+  50% { transform: translateX(0%); opacity: 0.8; }
+  100% { transform: translateX(100%); opacity: 0.3; }
+}
+
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.footer-logo-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.footer-logo-img {
+  max-width: 100%;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+}
+
+
+.footer-solo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.solo-brand-box {
+  background: white;
+  padding: 0.8rem;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
+}
+
+
+.brand-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-bottom: 2.5rem;
+}
+
+.footer-motto-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: white;
+  border: 1px solid rgba(210, 0, 0, 0.5);
+}
+
+
+.footer-heading {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--rich-red);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 1.2rem;
+}
+
+.footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: var(--transition-smooth);
+}
+
+.footer-links a svg {
+  color: var(--rich-red);
+  transition: transform 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: white;
+  transform: translateX(5px);
+}
+
+.footer-links a:hover svg {
+  transform: rotate(-45deg);
+}
+
+.contact-info-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+.icon-box-footer {
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  color: white;
+  box-shadow: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-contact-link:hover .icon-box-footer {
+  background: var(--rich-red);
+  border-color: var(--rich-red);
+}
+
+.footer-contact-link span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.footer-line {
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    transparent 100%
+  );
+  margin-bottom: 3rem;
+}
+
+.bottom-flex {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.copyright-text {
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+.footer-token-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  box-shadow: none !important;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition-smooth);
+}
+
+.footer-token-card:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.built-badge {
+  padding: 0.8rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: white;
+  border-radius: 100px !important;
+}
+
+
+@media (max-width: 1100px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-heading::after { left: 50%; transform: translateX(-50%); }
+  .footer-links a { justify-content: center; }
+  .footer-contact-link { justify-content: center; }
+  .footer-logo-box { justify-content: center; }
+  .footer-motto-badge { justify-content: center; }
+  .bottom-flex { flex-direction: column; text-align: center; }
+}
