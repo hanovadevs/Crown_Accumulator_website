@@ -5,12 +5,12 @@ import ClayCard from '../components/ClayCard';
 import './Products.css';
 
 // Product Assets
-import q70l from '../assets/products/Solo 9 plates.jpeg';
-import ma115 from '../assets/products/Solo 11 plates.jpeg';
-import super4 from '../assets/products/Solo 18 plates.jpeg';
-import solar60 from '../assets/products/Solo Solar 60.jpeg';
-import plate2hn from '../assets/products/2HN plate.jpeg';
-import plateStandard from '../assets/products/Standard plate.jpeg';
+import q70l from '../assets/Products/Solo 9 plates.jpeg';
+import ma115 from '../assets/Products/Solo 11 plates.jpeg';
+import super4 from '../assets/Products/Solo 18 plates.jpeg';
+import solar60 from '../assets/Products/Solo Solar 60.jpeg';
+import plate2hn from '../assets/Products/2HN plate.jpeg';
+import plateStandard from '../assets/Products/Standard plate.jpeg';
 
 const localProducts = [
   { _id: '1', name: 'SOLO Q-70L Plus', category: 'Car Battery', description: 'Premium 9-plate automotive battery for superior cranking power.', image: q70l },
