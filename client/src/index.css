@@ -2,28 +2,30 @@
   --deep-blue: #0A1B44;
   --rich-red: #D20000;
   --pure-white: #FFFFFF;
-  --clay-shadow-light: inset 8px 8px 16px rgba(0, 0, 0, 0.05), inset -8px -8px 16px rgba(255, 255, 255, 0.9);
-  --clay-shadow-dark: 16px 16px 32px rgba(0, 0, 0, 0.1), -16px -16px 32px rgba(255, 255, 255, 1);
-  --clay-btn-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08), -8px -8px 16px rgba(255, 255, 255, 1);
-  --clay-btn-active: inset 6px 6px 12px rgba(0, 0, 0, 0.1), inset -6px -6px 12px rgba(255, 255, 255, 0.9);
+  --clay-shadow-light: inset 4px 4px 8px rgba(0, 0, 0, 0.04), inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+  --clay-shadow-dark: 8px 8px 24px rgba(10, 27, 68, 0.08), -8px -8px 24px rgba(255, 255, 255, 0.95);
+  --clay-btn-shadow: 4px 4px 12px rgba(0, 0, 0, 0.06), -4px -4px 12px rgba(255, 255, 255, 1);
+  --clay-btn-active: inset 4px 4px 8px rgba(0, 0, 0, 0.08), inset -4px -4px 8px rgba(255, 255, 255, 0.9);
   --light-blue-bg: #f5f8ff;
-  --border-radius: 40px;
+  --border-radius: 20px;
+  --border-radius-sm: 12px;
   --font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
   --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+  --card-glow: 0 0 0 1px rgba(10, 27, 68, 0.04);
 }
 
 body {
   background-color: var(--light-blue-bg);
   background-image: 
-    radial-gradient(circle at 5% 5%, rgba(10, 27, 68, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 95% 95%, rgba(210, 0, 0, 0.04) 0%, transparent 40%),
-    linear-gradient(135deg, rgba(10, 27, 68, 0.012) 25%, transparent 25%, transparent 50%, rgba(10, 27, 68, 0.012) 50%, rgba(10, 27, 68, 0.012) 75%, transparent 75%, transparent);
-  background-size: 100% 100%, 100% 100%, 60px 60px;
+    radial-gradient(circle at 5% 5%, rgba(10, 27, 68, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 95% 95%, rgba(210, 0, 0, 0.02) 0%, transparent 40%);
+  background-size: 100% 100%;
   background-attachment: fixed;
   color: var(--deep-blue);
   font-family: var(--font-family);
-  font-size: 14px; /* Reduced base size */
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
@@ -33,28 +35,16 @@ h3 { font-size: 1.4rem; line-height: 1.2; letter-spacing: -0.01em; }
 h4 { font-size: 1.1rem; line-height: 1.2; }
 
 /* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--light-blue-bg);
-}
-
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--light-blue-bg); }
 ::-webkit-scrollbar-thumb {
   background: var(--deep-blue);
   border-radius: 10px;
-  border: 3px solid var(--light-blue-bg);
+  border: 2px solid var(--light-blue-bg);
 }
+::-webkit-scrollbar-thumb:hover { background: var(--rich-red); }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--rich-red);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+html { scroll-behavior: smooth; }
 
 @media (max-width: 768px) {
   body { font-size: 14px; }
@@ -67,49 +57,79 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--deep-blue);
 }
 
-
 a {
   text-decoration: none;
   color: inherit;
   transition: all 0.3s ease;
 }
 
-ul {
-  list-style: none;
+ul { list-style: none; }
+
+/* ═══════════════════════════════════════════
+   Premium Claymorphism Cards
+   ═══════════════════════════════════════════ */
+.clay-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--border-radius);
+  border: var(--glass-border);
+  box-shadow: var(--clay-shadow-dark), var(--card-glow);
+  padding: 1.8rem;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Claymorphism Utilities */
-.clay-card {
-  background: var(--pure-white);
-  border-radius: var(--border-radius);
-  box-shadow: var(--clay-shadow-dark);
-  padding: 1.8rem; /* Reduced from 2.5rem */
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+.clay-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+  pointer-events: none;
 }
 
 .clay-card:hover {
-  transform: translateY(-8px) scale(1.02); /* Added subtle advancement animation */
-  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.12), -20px -20px 40px rgba(255, 255, 255, 1);
+  transform: translateY(-6px);
+  box-shadow: 12px 12px 32px rgba(10, 27, 68, 0.1), -8px -8px 24px rgba(255, 255, 255, 1), var(--card-glow);
+  border-color: rgba(210, 0, 0, 0.08);
 }
 
+/* ═══════════════════════════════════════════
+   Inset & Buttons
+   ═══════════════════════════════════════════ */
 .clay-inset {
-  background: var(--pure-white);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
   border-radius: var(--border-radius);
   box-shadow: var(--clay-shadow-light);
+  border: var(--glass-border);
 }
 
 .clay-button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--pure-white);
   color: var(--deep-blue);
-  padding: 1rem 2rem;
-  border-radius: 25px;
-  border: none;
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid rgba(10, 27, 68, 0.06);
   font-weight: 600;
+  font-size: 0.9rem;
   cursor: pointer;
   box-shadow: var(--clay-btn-shadow);
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   outline: none;
+  letter-spacing: 0.02em;
+}
+
+.clay-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.08), -6px -6px 16px rgba(255, 255, 255, 1);
 }
 
 .clay-button:active {
@@ -120,76 +140,7 @@ ul {
 .clay-button.primary {
   background: var(--deep-blue);
   color: var(--pure-white);
-}
-
-.clay-button.accent {
-  background: var(--rich-red);
-  color: var(--pure-white);
-}
-
-/* Layout Utilities */
-.container {
-  max-width: 1100px; /* Reduced from 1200px */
-  margin: 0 auto;
-  padding: 0 1.5rem; /* Reduced from 2rem */
-}
-
-.section {
-  padding: 1rem 0; /* Reduced from 1.5rem */
-}
-
-
-
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Advanced Reveals */
-.reveal {
-  opacity: 0;
-  filter: blur(10px);
-  transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.reveal-up { transform: translateY(40px); }
-.reveal-left { transform: translateX(-40px); }
-.reveal-right { transform: translateX(40px); }
-
-.reveal.active {
-  opacity: 1;
-  transform: translate(0, 0);
-  filter: blur(0);
-}
-
-.animate-fade {
-  animation: fadeIn 0.8s ease forwards;
-}
-
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  :root {
-    --section-padding: 1rem;
-    font-size: 14px;
-  }
-
-  .container {
-    padding: 0 1rem;
-  }
-
-  h1 { font-size: 1.8rem !important; }
-  h2 { font-size: 1.5rem !important; }
-  h3 { font-size: 1.2rem !important; }
-
-  .section {
-    padding: 0.5rem 0; /* Reduced padding on mobile */
-  }
-}
-
-/* Button Enhancements */
-.clay-button.primary {
+  border-color: transparent;
   position: relative;
   overflow: hidden;
 }
@@ -203,24 +154,121 @@ ul {
   height: 200%;
   background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
   transform: rotate(45deg);
-  transition: 0.5s;
+  transition: 0.6s;
   pointer-events: none;
 }
 
-.clay-button.primary:hover::after {
-  left: 100%;
+.clay-button.primary:hover::after { left: 100%; }
+
+.clay-button.accent {
+  background: var(--rich-red);
+  color: var(--pure-white);
+  border-color: transparent;
 }
 
-/* WhatsApp Pulse */
+/* ═══════════════════════════════════════════
+   Layout Utilities
+   ═══════════════════════════════════════════ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section { padding: 1rem 0; }
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* ═══════════════════════════════════════════
+   Premium Reveal Animations
+   ═══════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  filter: blur(6px);
+  transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.reveal-up { transform: translateY(30px); }
+.reveal-left { transform: translateX(-30px); }
+.reveal-right { transform: translateX(30px); }
+
+.reveal.active {
+  opacity: 1;
+  transform: translate(0, 0);
+  filter: blur(0);
+}
+
+.animate-fade { animation: fadeIn 0.8s ease forwards; }
+
+/* ═══════════════════════════════════════════
+   Keyframes
+   ═══════════════════════════════════════════ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(210, 0, 0, 0.15); }
+  50% { box-shadow: 0 0 20px rgba(210, 0, 0, 0.3); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
 @keyframes pulse {
   0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
   70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
   100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-.whatsapp-icon-bg {
-  animation: pulse 2s infinite;
+@keyframes animate-slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes animate-scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
 
+.animate-slide-up { animation: animate-slide-up 0.6s ease forwards; }
+.animate-scale-in { animation: animate-scale-in 0.5s ease forwards; }
+.animate-pulse { animation: glow-pulse 3s ease-in-out infinite; }
 
+.whatsapp-icon-bg { animation: pulse 2s infinite; }
+
+/* ═══════════════════════════════════════════
+   Mobile Responsiveness
+   ═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 1rem;
+    font-size: 14px;
+  }
+
+  .container { padding: 0 1rem; }
+
+  h1 { font-size: 1.8rem !important; }
+  h2 { font-size: 1.5rem !important; }
+  h3 { font-size: 1.2rem !important; }
+
+  .section { padding: 0.5rem 0; }
+}

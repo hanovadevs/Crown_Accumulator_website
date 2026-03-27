@@ -92,8 +92,8 @@
 .clay-inset {
   border: none;
   width: 100%;
-  padding: 0.8rem 1.2rem; /* Reduced from 1rem 1.5rem */
-  border-radius: 20px;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--border-radius-sm);
   font-family: inherit;
   font-size: 1rem;
   box-sizing: border-box;
@@ -132,8 +132,8 @@
 .contact-social-bar .social-icon-link:hover {
   background: var(--rich-red) !important;
   color: white !important;
-  transform: translateY(-8px) scale(1.1);
-  box-shadow: 0 15px 30px rgba(210, 0, 0, 0.2) !important;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(210, 0, 0, 0.2) !important;
 }
 
 .small-btn {

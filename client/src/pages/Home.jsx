@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Shield, Settings, Battery, Zap, Award, Users } from 'lucide-react';
+import CountUp from '../components/CountUp';
 import ClayButton from '../components/ClayButton';
 import ClayCard from '../components/ClayCard';
 import SEO from '../components/SEO';
@@ -60,14 +61,32 @@ const Home = () => {
           </div>
           
           <div className={`hero-visual ${isVisible ? 'animate-float' : ''}`}>
-            <div className="clay-card hero-card flex-center">
-              <div className="visual-elements">
-                 <div className="floating-item item-1 clay-card"><Battery size={32} color="#0A1B44" /></div>
-                 <div className="floating-item item-2 clay-card"><Zap size={32} color="#D20000" /></div>
-
-                 <img src={logo} alt="Crown Accumulator Logo" className="hero-main-logo" />
+            <div className="hero-card-wrapper">
+              <div className="hero-card-bg"></div>
+              <div className="hero-card-content">
+                <div className="hero-card-rings">
+                  <div className="ring ring-1"></div>
+                  <div className="ring ring-2"></div>
+                  <div className="ring ring-3"></div>
+                </div>
+                <img src={logo} alt="Crown Accumulator Logo" className="hero-main-logo" />
+                <div className="hero-card-badge">
+                  <span className="badge-dot"></span>
+                  <span>SINCE 1984</span>
+                </div>
               </div>
-              <p className="visual-caption">SOLO Production Unit</p>
+              <div className="floating-item item-1">
+                <Battery size={22} color="#0A1B44" />
+                <span className="float-label">Energy</span>
+              </div>
+              <div className="floating-item item-2">
+                <Zap size={22} color="#D20000" />
+                <span className="float-label">Power</span>
+              </div>
+              <div className="floating-item item-3">
+                <Shield size={22} color="#0A1B44" />
+                <span className="float-label">Trust</span>
+              </div>
             </div>
           </div>
 
@@ -102,17 +121,17 @@ const Home = () => {
       <section className="stats section reveal reveal-up">
         <div className="container stats-container clay-card flex-center">
           <div className="stat-item">
-            <Award className="stat-icon" size={48} />
-            <div className="stat-number">40+</div>
+            <Award className="stat-icon" size={44} />
+            <div className="stat-number"><CountUp end={40} suffix="+" /></div>
             <div className="stat-label">Years of Experience</div>
           </div>
           <div className="stat-item">
-            <Users className="stat-icon" size={48} />
-            <div className="stat-number">100+</div>
+            <Users className="stat-icon" size={44} />
+            <div className="stat-number"><CountUp end={100} suffix="+" /></div>
             <div className="stat-label">OEM Partnerships</div>
           </div>
           <div className="stat-item">
-            <Battery className="stat-icon" size={48} />
+            <Battery className="stat-icon" size={44} />
             <div className="stat-number">SOLO</div>
             <div className="stat-label">Premier Brand</div>
           </div>
