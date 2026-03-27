@@ -18,9 +18,9 @@
 }
 
 .hero-headline {
-  font-size: 2.6rem; /* Slightly smaller to prevent clipping */
+  font-size: 2.2rem; /* Reduced from 2.6rem */
   line-height: 1.1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem; /* Reduced from 1.5rem */
   color: var(--deep-blue);
   font-weight: 900;
 }
@@ -39,8 +39,8 @@
 }
 
 .hero-motto-box {
-  padding: 2rem;
-  margin-bottom: 2rem;
+  padding: 1.5rem; /* Reduced from 2rem */
+  margin-bottom: 1.5rem; /* Reduced from 2rem */
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -56,7 +56,7 @@
 }
 
 .motto-text {
-  font-size: 1.4rem;
+  font-size: 1.2rem; /* Reduced from 1.4rem */
   font-weight: 900;
   font-style: italic;
   color: var(--deep-blue);
@@ -142,8 +142,8 @@
 
 
 .item-1 {
-  bottom: -60px; /* Moved to bottom-right as per user arrow */
-  right: -80px;
+  bottom: -130px; 
+  right: -20px;
   animation: float 5s ease-in-out infinite;
 }
 
@@ -151,7 +151,7 @@
 
 
 .item-2 {
-  top: -60px; /* Moved to top-left as per user arrow */
+  top: -150px; 
   left: -80px;
   animation: float 7s ease-in-out infinite reverse;
 }
@@ -170,7 +170,7 @@
 
 .pillar-item {
   text-align: center;
-  padding: 3rem 2rem;
+  padding: 2rem 1.5rem; /* Reduced from 3rem 2rem */
 }
 
 .pillar-icon {
@@ -185,8 +185,8 @@
 
 /* Stats Section */
 .stats-container {
-  padding: 4rem;
-  gap: 5rem;
+  padding: 2.5rem; /* Reduced from 4rem */
+  gap: 3rem; /* Reduced from 5rem */
   margin-top: 1rem;
 }
 
@@ -200,7 +200,7 @@
 }
 
 .stat-number {
-  font-size: 2.2rem;
+  font-size: 1.8rem; /* Reduced from 2.2rem */
   font-weight: 900;
   color: var(--deep-blue);
   line-height: 1;

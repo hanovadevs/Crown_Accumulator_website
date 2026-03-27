@@ -10,7 +10,7 @@
 
 .story-card {
   background: white;
-  padding: 2.5rem;
+  padding: 1.8rem; /* Reduced from 2.5rem */
   border-radius: 40px;
   box-shadow: 20px 20px 60px rgba(0,0,0,0.06);
   position: relative;
@@ -28,7 +28,7 @@
 }
 
 .story-card h2 {
-  font-size: 2rem;
+  font-size: 1.8rem; /* Reduced from 2rem */
   color: var(--deep-blue);
   margin-bottom: 2rem;
   text-align: center;
@@ -79,7 +79,7 @@
 }
 
 .timeline-item {
-  padding: 1rem 3rem;
+  padding: 1rem 2rem; /* Reduced from 1rem 3rem */
   position: relative;
   width: 50%;
   box-sizing: border-box;
@@ -127,7 +127,7 @@
 
 .value-item {
   background: white;
-  padding: 2.5rem 1.5rem; /* Slightly tighter */
+  padding: 2rem 1rem; /* Reduced from 2.5rem 1.5rem */
   border-radius: 30px;
   text-align: center;
   box-shadow: 15px 15px 40px rgba(0,0,0,0.05);

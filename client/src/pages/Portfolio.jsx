@@ -1,7 +1,43 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Briefcase, Building2, Terminal, Globe } from 'lucide-react';
 import ClayCard from '../components/ClayCard';
 import './Portfolio.css';
+
+const ClientLogo = ({ domain, fallbackIcon }) => {
+  const [imgSrc, setImgSrc] = useState(`https://logo.clearbit.com/${domain}`);
+
+  const handleError = () => {
+    if (imgSrc && imgSrc.includes('clearbit')) {
+      // Fallback to Google Favicon
+      setImgSrc(`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=128`);
+    } else {
+      // Fallback to the lucide icon
+      setImgSrc(null);
+    }
+  };
+
+  if (!imgSrc) {
+    return fallbackIcon;
+  }
+
+  return (
+    <img 
+      src={imgSrc} 
+      alt={`Logo for ${domain}`} 
+      onError={handleError}
+      style={{ 
+        width: '55px', 
+        height: '55px', 
+        objectFit: 'contain', 
+        borderRadius: '50%',
+        padding: '3px',
+        background: 'white',
+        boxShadow: '0 4px 10px rgba(0,0,0,0.05)'
+      }}
+      loading="lazy"
+    />
+  );
+};
 
 const Portfolio = () => {
   useEffect(() => {
@@ -16,14 +52,14 @@ const Portfolio = () => {
   }, []);
 
   const customers = [
-    { name: 'Ravi Automobile Pvt Ltd', type: 'Major OEM' },
-    { name: 'Road Prince (Omega Industries)', type: 'Strategic Partner' },
-    { name: 'United Auto Industries', type: 'Key Client' },
-    { name: 'Unique (D.S Motors)', type: 'Trusted Partner' },
-    { name: 'Super Star (Vohra Automobiles)', type: 'National Distributor' },
-    { name: 'Buraq (Memon Motors)', type: 'Regional Partner' },
-    { name: 'Super Asia', type: 'Industrial Client' },
-    { name: 'Crown Motor Co.', type: 'Legacy Partner' }
+    { name: 'Ravi Automobile Pvt Ltd', type: 'Major OEM', domain: 'raviautomobile.com' },
+    { name: 'Road Prince (Omega Industries)', type: 'Strategic Partner', domain: 'roadprince.com.pk' },
+    { name: 'United Auto Industries', type: 'Key Client', domain: 'unitedmotorcycle.com.pk' },
+    { name: 'Unique (D.S Motors)', type: 'Trusted Partner', domain: 'dsmotorsunique.com' },
+    { name: 'Super Star (Vohra Automobiles)', type: 'National Distributor', domain: 'superstarmotorcycle.com' },
+    { name: 'Buraq (Memon Motors)', type: 'Regional Partner', domain: 'memonmotors.com' },
+    { name: 'Super Asia', type: 'Industrial Client', domain: 'superasiagroup.com' },
+    { name: 'Crown Motor Co.', type: 'Legacy Partner', domain: 'crowngroup.com.pk' }
   ];
 
   return (
@@ -43,8 +79,8 @@ const Portfolio = () => {
               <div key={index} className="client-item reveal reveal-up" style={{transitionDelay: `${index * 0.1}s`}}>
                 <div className="client-card">
                   <div className="client-header">
-                    <div className="client-icon flex-center">
-                      <Building2 size={40} />
+                    <div className="client-icon flex-center" style={{ padding: '0.5rem', background: 'transparent', boxShadow: 'none' }}>
+                      <ClientLogo domain={client.domain} fallbackIcon={<Building2 size={40} className="color-red" />} />
                     </div>
                   </div>
                   <div className="client-body">

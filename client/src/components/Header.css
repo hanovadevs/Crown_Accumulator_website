@@ -1,5 +1,5 @@
 .header {
-  height: 90px;
+  height: 70px; /* Reduced from 90px */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -34,7 +34,7 @@
 }
 
 .header-logo-img {
-  height: 55px; /* Slightly smaller for density */
+  height: 45px; /* Reduced from 55px */
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
@@ -46,7 +46,7 @@
 }
 
 .header-solo-img {
-  height: 40px; /* Smaller for density */
+  height: 32px; /* Reduced from 40px */
   width: auto;
   object-fit: contain;
   transition: transform 0.3s ease;
@@ -91,7 +91,7 @@
 @media (max-width: 1024px) {
   .header {
     margin: 0.5rem;
-    height: 60px; /* Compact mobile header */
+    height: 60px; /* Keeps same on mobile */
   }
 
   .header-logo-img { height: 35px; }

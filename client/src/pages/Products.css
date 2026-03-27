@@ -63,7 +63,7 @@
 }
 
 .product-icon-box {
-  padding: 2.5rem;
+  padding: 1.5rem; /* Reduced from 2.5rem */
   color: var(--deep-blue);
 }
 
@@ -86,7 +86,7 @@
 }
 
 .product-name {
-  font-size: 1.4rem;
+  font-size: 1.2rem; /* Reduced from 1.4rem */
   font-weight: 900;
   color: var(--deep-blue);
   margin-right: 1rem;
@@ -114,7 +114,7 @@
 }
 
 .empty-state {
-  padding: 5rem;
+  padding: 3rem; /* Reduced from 5rem */
   opacity: 0.8;
 }
 
@@ -166,12 +166,12 @@
 
 .product-modal-content {
   background: var(--pure-white);
-  max-width: 1000px;
+  max-width: 900px; /* Reduced from 1000px */
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  padding: 3rem !important;
+  padding: 2rem !important; /* Reduced from 3rem */
 }
 
 .modal-close-btn {

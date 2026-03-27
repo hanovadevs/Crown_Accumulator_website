@@ -6,7 +6,7 @@
 }
 
 .location-card {
-  padding: 2.5rem;
+  padding: 2rem; /* Reduced from 2.5rem */
   text-align: center;
 }
 
@@ -41,7 +41,7 @@
 .form-container-grid {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
-  gap: 3rem;
+  gap: 2rem; /* Reduced from 3rem */
   align-items: start;
 }
 
@@ -56,7 +56,7 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  padding: 1.5rem;
+  padding: 1rem; /* Reduced from 1.5rem */
 }
 
 .contact-pill-item strong {
@@ -92,7 +92,7 @@
 .clay-inset {
   border: none;
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 0.8rem 1.2rem; /* Reduced from 1rem 1.5rem */
   border-radius: 20px;
   font-family: inherit;
   font-size: 1rem;
@@ -102,7 +102,7 @@
 .submit-btn {
   width: 100%;
   margin-top: 1rem;
-  padding: 1.2rem !important;
+  padding: 1rem !important; /* Reduced from 1.2rem */
   font-weight: 900 !important;
   letter-spacing: 1px;
 }
