@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Battery, Settings, Zap, Filter, Search, Info } from 'lucide-react';
+import { Battery, Settings, Zap, Filter, Search, Info, MessageCircle, Phone, ArrowRight } from 'lucide-react';
 import ClayCard from '../components/ClayCard';
 import SEO from '../components/SEO';
 import './Products.css';
@@ -181,37 +181,64 @@ const ProductDetailModal = ({ product, onClose }) => {
         <button className="modal-close-btn clay-button" onClick={onClose}>&times;</button>
 
         <div className="modal-inner">
-          <div className="modal-visual clay-inset">
+          <div className="modal-visual animate-float">
+            <div className="modal-image-glow"></div>
             <img src={product.image} alt={product.name} className="modal-main-img" />
           </div>
 
           <div className="modal-details">
-            <div className="badge-line mb-3">
-              <span className="product-badge clay-card">{product.category}</span>
-            </div>
-            <h2 className="display-5 mb-4">{product.name}</h2>
-
-            <div className="detail-section mb-5">
-              <h4>PRODUCT DESCRIPTION</h4>
-              <p className="lead">{product.description}</p>
-            </div>
-
-            <div className="detail-features clay-inset p-4 mb-5">
-              <div className="feature-item">
-                <Zap className="color-red" size={20} />
-                <span>High performance guaranteed by Crown Accumulator</span>
-              </div>
-              <div className="feature-item">
-                <Settings className="color-red" size={20} />
-                <span>Specialized plate engineering (since 1984)</span>
+            <div className="modal-header-top">
+              <span className="product-category-tag">{product.category}</span>
+              <div className="availability-tag">
+                <span className="dot animate-pulse"></span> Available for Inquiry
               </div>
             </div>
 
-            <div className="modal-actions">
-              <button className="clay-button primary w-100 py-3" onClick={() => window.location.href = '/contact'}>
-                Request Commercial Quotation
-              </button>
+            <h2 className="modal-product-title">{product.name}</h2>
+
+            <div className="modal-desc-section">
+              <p className="modal-description">{product.description}</p>
             </div>
+
+            <div className="modal-features-grid">
+              <div className="feature-pill">
+                <Zap size={16} /> <span>High Performance</span>
+              </div>
+              <div className="feature-pill">
+                <Settings size={16} /> <span>Precision Built</span>
+              </div>
+            </div>
+
+            <div className="modal-contact-divider">
+              <span>GET A QUOTATION</span>
+            </div>
+
+            <div className="modal-action-buttons">
+              <a 
+                href={`https://wa.me/923234352797?text=Interested in ${product.name}`} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="modal-btn whatsapp-btn"
+              >
+                <div className="btn-icon-box"><MessageCircle size={18} /></div>
+                <div className="btn-text-content">
+                  <span className="btn-label">WhatsApp</span>
+                  <span className="btn-sub">Instant Chat</span>
+                </div>
+              </a>
+
+              <a href="tel:+923234352797" className="modal-btn call-btn">
+                <div className="btn-icon-box"><Phone size={18} /></div>
+                <div className="btn-text-content">
+                  <span className="btn-label">Call Now</span>
+                  <span className="btn-sub">Direct Inquiry</span>
+                </div>
+              </a>
+            </div>
+
+            <button className="modal-quote-link" onClick={() => window.location.href = '/contact'}>
+              View More Contact Options <ArrowRight size={14} />
+            </button>
           </div>
         </div>
       </div>

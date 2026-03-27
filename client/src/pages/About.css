@@ -55,6 +55,99 @@
   text-align: center;
 }
 
+/* ═══════════════════════════════════════════
+   Founder Profile Section
+   ═══════════════════════════════════════════ */
+.founder-profile-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border: var(--glass-border);
+  box-shadow: 4px 4px 16px rgba(10, 27, 68, 0.04);
+}
+
+.founder-image-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.founder-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
+  box-shadow: 0 8px 20px rgba(10, 27, 68, 0.15);
+  border: 3px solid white;
+}
+
+.founder-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px dashed rgba(210, 0, 0, 0.4);
+  animation: ring-spin 20s linear infinite;
+  z-index: 1;
+}
+
+@keyframes ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.founder-info {
+  text-align: left;
+}
+
+.founder-name {
+  font-size: 1.6rem;
+  color: var(--deep-blue);
+  margin-bottom: 0.2rem;
+  font-weight: 900;
+}
+
+.founder-title {
+  color: var(--rich-red);
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.founder-bio {
+  font-size: 1rem !important;
+  text-align: left !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .founder-profile-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .founder-info {
+    text-align: center;
+  }
+  .founder-bio {
+    text-align: center !important;
+  }
+}
+
+
 .timeline-section {
   padding: 1rem 0;
 }
@@ -221,5 +314,100 @@
   .value-icon-box { width: 60px; height: 60px; margin-bottom: 1rem; }
 }
 
+/* OEM & Private Label Services */
+.oem-services-section {
+  padding: 4rem 0;
+}
 
+.oem-card-wrapper {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
 
+.oem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.oem-feature {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.oem-icon-box {
+  width: 56px;
+  height: 56px;
+  background: var(--deep-blue);
+  color: white;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 10px 20px rgba(10, 27, 68, 0.15);
+}
+
+.oem-feature h4 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--deep-blue);
+  margin-bottom: 0.5rem;
+}
+
+.oem-feature p {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+.confidentiality-banner {
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(210, 0, 0, 0.1);
+}
+
+.confidentiality-inner {
+  background: rgba(210, 0, 0, 0.03);
+}
+
+.confidentiality-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.confidentiality-header h3 {
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--deep-blue);
+  margin: 0;
+}
+
+.confidentiality-inner p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--deep-blue);
+  opacity: 0.9;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .oem-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .oem-card-wrapper {
+    padding: 2rem !important;
+  }
+  .oem-feature {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}

@@ -79,6 +79,10 @@ const Footer = () => {
           <div className="footer-col contact-col">
             <h4 className="footer-heading">INSTANT CONNECT</h4>
             <div className="contact-info-footer">
+              <a href="tel:+923234352797" className="footer-contact-link">
+                <div className="icon-box-footer flex-center"><Phone size={18} /></div>
+                <span>+92 323 4352797</span>
+              </a>
               <a href="tel:+923009448462" className="footer-contact-link">
                 <div className="icon-box-footer flex-center"><Phone size={18} /></div>
                 <span>+92 300 944 84 62</span>

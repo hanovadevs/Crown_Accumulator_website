@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
-import { Target, Heart, Award, CheckCircle, TrendingUp, History } from 'lucide-react';
+import { Target, Heart, Award, CheckCircle, TrendingUp, History, ShieldCheck, Box, Factory } from 'lucide-react';
 import SEO from '../components/SEO';
 import './About.css';
 import logo from '../assets/CrownAccumulatorFull_Logo.png';
 import soloLogo from '../assets/solo_logo.png';
+import founderPhoto from '../assets/Muhammad Akram.jpeg';
 
 const About = () => {
 
@@ -59,12 +60,22 @@ const About = () => {
                 <p>SOLO represents the pinnacle of battery and hardware engineering under the Crown Accumulator umbrella.</p>
               </div>
               <div className="leadership-section mb-4">
-                <p>
-                  Founded by <strong>Akram Mughal</strong>, we have evolved
-                  from a general order supplier into a high-precision manufacturing powerhouse.
-                </p>
-                <p>
-                  Under the visionary leadership of our current CEO, <strong>Shahid Mehmood Mughal</strong>,
+                <div className="founder-profile-card mt-5 mb-5">
+                  <div className="founder-image-wrapper">
+                    <img src={founderPhoto} alt="Founder Muhammad Akram" className="founder-img" />
+                    <div className="founder-ring"></div>
+                  </div>
+                  <div className="founder-info">
+                    <h3 className="founder-name">Muhammad Akram</h3>
+                    <p className="founder-title">Founder & Visionary</p>
+                    <p className="founder-bio">
+                      Founded by <strong>Muhammad Akram</strong>, we evolved from a general order supplier into a high-precision manufacturing powerhouse.
+                    </p>
+                  </div>
+                </div>
+                
+                <p className="text-center mt-3">
+                  Under the visionary leadership of our current CEO, <strong>Shahid Mahmood Mughal</strong>,
                   Crown Accumulator continues to pioneer energy solutions with the SOLO brand.
                 </p>
               </div>
@@ -94,6 +105,53 @@ const About = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="oem-services-section reveal">
+        <div className="container">
+          <div className="oem-card-wrapper clay-card p-5">
+            <div className="oem-header text-center mb-5">
+              <div className="badge mb-3">B2B SOLUTIONS</div>
+              <h2 className="display-5">OEM & PRIVATE LABEL SERVICES</h2>
+              <p className="subtitle mx-auto" style={{maxWidth: '700px'}}>
+                We empower entrepreneurs and established companies by manufacturing high-quality energy storage 
+                and automotive components under their own brand names.
+              </p>
+            </div>
+
+            <div className="oem-grid">
+              <div className="oem-feature reveal reveal-left">
+                <div className="oem-icon-box"><Box size={24} /></div>
+                <div>
+                  <h4>Custom Branding</h4>
+                  <p>From battery casing colors to logo moldings, we build your brand from the ground up.</p>
+                </div>
+              </div>
+              <div className="oem-feature reveal reveal-right">
+                <div className="oem-icon-box"><Factory size={24} /></div>
+                <div>
+                  <h4>Scalable Production</h4>
+                  <p>Our facility handles massive volumes of plates, batteries, and gears for global partners.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="confidentiality-banner mt-5 mt-5">
+              <div className="confidentiality-inner glass-card p-4">
+                <div className="confidentiality-header mb-3">
+                  <ShieldCheck size={28} className="color-red" />
+                  <h3>STRICT CONFIDENTIALITY POLICY</h3>
+                </div>
+                <p>
+                  At <strong>Crown Accumulator</strong>, we maintain a legacy of absolute silence. Our white-label manufacturing 
+                  partnerships are protected by iron-clad <strong>Non-Disclosure Agreements (NDAs)</strong>. As per our strict policy, 
+                  we never disclose which companies we manufacture for—and we extend this same protection to your brand. 
+                  Your trade secrets and brand identity are safe with us.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

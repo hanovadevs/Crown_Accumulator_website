@@ -8,6 +8,7 @@ import About from './pages/About';
 import Products from './pages/Products';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
+import ScrollToTop from './components/ScrollToTop';
 
 // Safe Analytics wrapper that doesn't break local dev
 const Analytics = () => {
@@ -24,6 +25,7 @@ const Analytics = () => {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="app-wrapper">
         <Header />
         <main>

@@ -1,6 +1,6 @@
-const ClayCard = ({ children, className = '', title = '' }) => {
+const ClayCard = ({ children, className = '', title = '', ...props }) => {
   return (
-    <div className={`clay-card ${className}`}>
+    <div className={`clay-card ${className}`} {...props}>
       {title && <h3 className="clay-card-title">{title}</h3>}
       <div className="clay-card-body">
         {children}
