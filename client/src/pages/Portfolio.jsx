@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Briefcase, Building2, Terminal, Globe } from 'lucide-react';
 import ClayCard from '../components/ClayCard';
+import SEO from '../components/SEO';
 import './Portfolio.css';
 
 const ClientLogo = ({ domain, fallbackIcon }) => {
@@ -64,6 +65,10 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio-page">
+      <SEO 
+        title="Our Clients & Portfolio | Crown Accumulator" 
+        description="Discover the top industries and brands across Pakistan that trust Crown Accumulator and SOLO for their energy and hardware needs."
+      />
       <section className="portfolio-hero section animate-slide-up">
         <div className="container text-center">
            <div className="badge clay-inset mb-3">CLIENT TRUST</div>

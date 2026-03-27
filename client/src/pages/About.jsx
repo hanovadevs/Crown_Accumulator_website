@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Target, Heart, Award, CheckCircle, TrendingUp, History } from 'lucide-react';
+import SEO from '../components/SEO';
 import './About.css';
 import logo from '../assets/CrownAccumulatorFull_Logo.png';
 import soloLogo from '../assets/solo_logo.png';
@@ -28,6 +29,10 @@ const About = () => {
 
   return (
     <div className="about-page">
+      <SEO 
+        title="About Us | Crown Accumulator & Solo Battery" 
+        description="Learn about Crown Accumulator's legacy since 1984. Discover how we built the SOLO brand into Pakistan's premier battery and automotive hardware choice."
+      />
       <section className="about-hero section animate-slide-up">
         <div className="container text-center">
           <div className="badge mb-3">SINCE 1984</div>

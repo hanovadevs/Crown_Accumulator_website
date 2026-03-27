@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://crownaccumulator.com/sitemap.xml

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Shield, Settings, Battery, Zap, Award, Users } from 'lucide-react';
 import ClayButton from '../components/ClayButton';
 import ClayCard from '../components/ClayCard';
+import SEO from '../components/SEO';
 import './Home.css';
 import logo from '../assets/CrownAccumulatorFull_Logo.png';
 import soloLogo from '../assets/solo_logo.png';
@@ -26,6 +27,10 @@ const Home = () => {
 
   return (
     <div className="home-page">
+      <SEO 
+        title="Crown Accumulator | Solo Battery & Super Shalimar Plate" 
+        description="Welcome to Crown Accumulator. Pakistan's premier manufacturer of high-performance Solo batteries, automotive solutions, and precision hardware."
+      />
       <section className="hero section">
         <div className="container hero-grid">
           <div className={`hero-text ${isVisible ? 'animate-slide-up' : ''}`}>

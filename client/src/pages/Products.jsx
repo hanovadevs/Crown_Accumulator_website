@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Battery, Settings, Zap, Filter, Search, Info } from 'lucide-react';
 import ClayCard from '../components/ClayCard';
+import SEO from '../components/SEO';
 import './Products.css';
 
 // Product Assets
@@ -86,6 +87,10 @@ const Products = () => {
 
   return (
     <div className="products-page">
+      <SEO 
+        title="SOLO Batteries & Battery Plates | Products" 
+        description="Explore our SOLO range of motorcycle batteries, car batteries, solar batteries, and high-precision battery plates like 2HN and Super 4."
+      />
       <section className="products-hero section animate-slide-up">
         <div className="container text-center">
           <h1 className="clay-inset display-4 mb-3">OUR SOLO RANGE</h1>
