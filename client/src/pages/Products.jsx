@@ -39,12 +39,12 @@ const Products = () => {
         if (data && data.length > 0) {
           const mappedData = data.map(p => ({
             ...p,
-            image: p.image === 'Solo 9 plates.jpeg' ? q70l : 
-                   p.image === 'Solo 11 plates.jpeg' ? ma115 : 
-                   p.image === 'Solo 18 plates.jpeg' ? super4 : 
-                   p.image === 'Solo Solar 60.jpeg' ? solar60 : 
-                   p.image === '2HN plate.jpeg' ? plate2hn : 
-                   p.image === 'Standard plate.jpeg' ? plateStandard : p.image
+            image: p.image === 'Solo 9 plates.jpeg' ? q70l :
+              p.image === 'Solo 11 plates.jpeg' ? ma115 :
+                p.image === 'Solo 18 plates.jpeg' ? super4 :
+                  p.image === 'Solo Solar 60.jpeg' ? solar60 :
+                    p.image === '2HN plate.jpeg' ? plate2hn :
+                      p.image === 'Standard plate.jpeg' ? plateStandard : p.image
           }));
           setProducts(mappedData);
           setFilteredProducts(mappedData);
@@ -65,7 +65,7 @@ const Products = () => {
     } else {
       setFilteredProducts(products.filter(p => p.category === activeCategory));
     }
-    
+
     // Trigger reveal animations
     setTimeout(() => {
       const observer = new IntersectionObserver((entries) => {
@@ -87,8 +87,8 @@ const Products = () => {
 
   return (
     <div className="products-page">
-      <SEO 
-        title="SOLO Batteries & Battery Plates | Products" 
+      <SEO
+        title="SOLO Batteries & Battery Plates | Products"
         description="Explore our SOLO range of motorcycle batteries, car batteries, solar batteries, and high-precision battery plates like 2HN and Super 4."
       />
       <section className="products-hero section animate-slide-up">
@@ -104,8 +104,8 @@ const Products = () => {
             <div className="filter-label"><Filter size={18} /> Filter By:</div>
             <div className="filter-tabs">
               {categories.map(cat => (
-                <button 
-                  key={cat} 
+                <button
+                  key={cat}
                   className={`filter-tab ${activeCategory === cat ? 'active' : ''}`}
                   onClick={() => setActiveCategory(cat)}
                 >
@@ -121,32 +121,32 @@ const Products = () => {
         <div className="container">
           {filteredProducts.length === 0 ? (
             <div className="empty-state clay-card text-center reveal">
-               <Search size={48} className="mb-3 opacity-50" />
-               <h3>No products found in this category.</h3>
-               <p>Please check back later or contact us for custom orders.</p>
+              <Search size={48} className="mb-3 opacity-50" />
+              <h3>No products found in this category.</h3>
+              <p>Please check back later or contact us for custom orders.</p>
             </div>
           ) : (
             <div className="product-grid">
               {filteredProducts.map((product, index) => (
-                <ClayCard 
-                  key={product._id} 
-                  className="product-card reveal reveal-up clickable" 
-                  style={{transitionDelay: `${(index % 3) * 0.15}s`}}
+                <ClayCard
+                  key={product._id}
+                  className="product-card reveal reveal-up clickable"
+                  style={{ transitionDelay: `${(index % 3) * 0.15}s` }}
                   onClick={() => setSelectedProduct(product)}
                 >
                   <div className="product-visual clay-inset flex-center">
                     <img src={product.image} alt={product.name} className="product-preview-img" />
                     <span className="visual-hint">CLICK TO ZOOM</span>
                   </div>
-                  
+
                   <div className="product-info">
                     <div className="product-header">
                       <h3 className="product-name">{product.name}</h3>
                       <div className="product-badge clay-card">{product.category}</div>
                     </div>
-                    
+
                     <p className="product-description">{product.description}</p>
-                    
+
                     <div className="product-action-box">
                       <div className="price-tag">
                         <Info size={14} /> <span>Inquiry Only</span>
@@ -158,9 +158,9 @@ const Products = () => {
               ))}
             </div>
           )}
-          
+
           <div className="pricing-disclaimer clay-card mt-5 reveal">
-              <p><strong>Raw Material Notice:</strong> Due to fluctuating lead and steel prices, please contact our sales point for updated commercial quotations.</p>
+            <p><strong>Raw Material Notice:</strong> Due to fluctuating lead and steel prices, please contact our sales point for updated commercial quotations.</p>
           </div>
         </div>
       </section>
@@ -179,39 +179,39 @@ const ProductDetailModal = ({ product, onClose }) => {
     <div className="product-modal-overlay" onClick={onClose}>
       <div className="product-modal-content clay-card animate-zoom-in" onClick={e => e.stopPropagation()}>
         <button className="modal-close-btn clay-button" onClick={onClose}>&times;</button>
-        
+
         <div className="modal-inner">
           <div className="modal-visual clay-inset">
-             <img src={product.image} alt={product.name} className="modal-main-img" />
+            <img src={product.image} alt={product.name} className="modal-main-img" />
           </div>
-          
+
           <div className="modal-details">
-             <div className="badge-line mb-3">
-               <span className="product-badge clay-card">{product.category}</span>
-             </div>
-             <h2 className="display-5 mb-4">{product.name}</h2>
-             
-             <div className="detail-section mb-5">
-               <h4>PRODUCT DESCRIPTION</h4>
-               <p className="lead">{product.description}</p>
-             </div>
+            <div className="badge-line mb-3">
+              <span className="product-badge clay-card">{product.category}</span>
+            </div>
+            <h2 className="display-5 mb-4">{product.name}</h2>
 
-             <div className="detail-features clay-inset p-4 mb-5">
-                <div className="feature-item">
-                   <Zap className="color-red" size={20} />
-                   <span>High performance guaranteed by Crown Accumulator</span>
-                </div>
-                <div className="feature-item">
-                   <Settings className="color-red" size={20} />
-                   <span>Specialized plate engineering (since 1984)</span>
-                </div>
-             </div>
+            <div className="detail-section mb-5">
+              <h4>PRODUCT DESCRIPTION</h4>
+              <p className="lead">{product.description}</p>
+            </div>
 
-             <div className="modal-actions">
-               <button className="clay-button primary w-100 py-3" onClick={() => window.location.href='/contact'}>
-                 Request Commercial Quotation
-               </button>
-             </div>
+            <div className="detail-features clay-inset p-4 mb-5">
+              <div className="feature-item">
+                <Zap className="color-red" size={20} />
+                <span>High performance guaranteed by Crown Accumulator</span>
+              </div>
+              <div className="feature-item">
+                <Settings className="color-red" size={20} />
+                <span>Specialized plate engineering (since 1984)</span>
+              </div>
+            </div>
+
+            <div className="modal-actions">
+              <button className="clay-button primary w-100 py-3" onClick={() => window.location.href = '/contact'}>
+                Request Commercial Quotation
+              </button>
+            </div>
           </div>
         </div>
       </div>

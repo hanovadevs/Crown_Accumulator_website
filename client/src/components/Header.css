@@ -10,7 +10,6 @@
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 4px 24px rgba(10, 27, 68, 0.06);
-  overflow: hidden;
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
@@ -28,7 +27,7 @@
   animation: shimmer 3s linear infinite;
   z-index: 1002;
   transition: width 0.15s ease;
-  border-radius: 2px;
+  border-radius: 0 0 16px 16px;
 }
 
 .header-content {
@@ -139,7 +138,8 @@
     display: block;
     position: relative;
     right: auto;
-    order: 2;
+    order: 3;
+    padding: 0.2rem;
   }
 
   .header-content {
@@ -149,15 +149,15 @@
      width: 100%;
   }
 
-  .header-left { order: 1; }
-  .header-right { order: 3; }
+  .header-left { order: 1; flex-shrink: 0; }
+  .header-right { order: 2; margin-left: auto; margin-right: 0.8rem; }
 
   .nav {
     display: none;
-    position: fixed;
-    top: 70px;
-    left: 0.5rem;
-    right: 0.5rem;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
