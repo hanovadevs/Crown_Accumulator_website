@@ -9,9 +9,110 @@ import { cinematicImages } from "@/data/cinematic-images";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "OEM Manufacturing",
+  title: "OEM Private-Label Battery Manufacturing | Crown Accumulator",
   description:
-    "Private label battery manufacturing by Crown Accumulator. Custom branding, full production pipeline, export support.",
+    "Turnkey private-label battery contract manufacturing by Crown Accumulator. Custom branding, ISO 9001:2015 quality control, automated assembly, and global export compliance.",
+  keywords: [
+    "OEM battery manufacturer",
+    "private label battery manufacturing",
+    "contract battery production",
+    "custom battery branding",
+    "battery exporter Pakistan",
+    "OEM motorcycle batteries",
+    "automotive battery OEM line",
+    "Crown Accumulator manufacturing",
+  ],
+  alternates: {
+    canonical: "https://www.crownaccumulator.com/manufacturing",
+  },
+  openGraph: {
+    title: "OEM Private-Label Battery Manufacturing | Crown Accumulator",
+    description:
+      "Launch your battery brand with Crown Accumulator's 40+ years of manufacturing infrastructure, automated casting, and international export documentation.",
+    url: "https://www.crownaccumulator.com/manufacturing",
+    siteName: "Crown Accumulator",
+    type: "website",
+    images: [
+      {
+        url: "/images/crown_factory_facility.png",
+        width: 1200,
+        height: 630,
+        alt: "Crown Accumulator OEM Manufacturing Facility",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OEM Private-Label Battery Manufacturing | Crown Accumulator",
+    description:
+      "Full private-label production: custom labels, container molding, formation testing, and export readiness.",
+    images: ["/images/crown_factory_facility.png"],
+  },
+};
+
+const oemSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://www.crownaccumulator.com/manufacturing#service",
+      name: "OEM Private-Label Battery Manufacturing",
+      provider: {
+        "@type": "Organization",
+        name: "Crown Accumulator",
+        url: "https://www.crownaccumulator.com",
+      },
+      serviceType: "Contract Manufacturing & Private-Label Production",
+      description:
+        "Full turnkey private-label manufacturing of lead-acid motorcycle, automotive, and solar batteries with customized casing, logos, packaging, and export certifications.",
+      areaServed: "Global",
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "OEM Battery Manufacturing Programs",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Motorcycle Battery OEM Production",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Automotive & Tractor Battery OEM Production",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Solar Deep-Cycle Tubular OEM Production",
+            },
+          },
+        ],
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.crownaccumulator.com/manufacturing#breadcrumbs",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.crownaccumulator.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "OEM Manufacturing",
+          item: "https://www.crownaccumulator.com/manufacturing",
+        },
+      ],
+    },
+  ],
 };
 
 const oemProducts = getProductsByCategory("oem");
@@ -45,7 +146,12 @@ const benefits = [
 
 export default function ManufacturingPage() {
   return (
-    <div className="bg-surface">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(oemSchema) }}
+      />
+      <div className="bg-surface">
       {/* ─── HERO SECTION ─── */}
       <section className="relative overflow-hidden bg-crown-navy py-20 text-white sm:py-28">
         <div className="absolute inset-0 opacity-20">
@@ -168,5 +274,6 @@ export default function ManufacturingPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

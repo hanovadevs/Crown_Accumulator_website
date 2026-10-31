@@ -18,7 +18,49 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = getResearchArticle(slug);
   if (!article) return { title: "Article Not Found" };
-  return { title: article.title, description: article.excerpt };
+
+  const title = `${article.title} | Battery Engineering Research`;
+  const description = `${article.subtitle}. ${article.excerpt}`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      article.title,
+      article.category,
+      "lead acid electrochemistry",
+      "battery research paper",
+      "Crown Accumulator metallurgy lab",
+      "battery engineering standards",
+      ...article.references.slice(0, 3),
+    ],
+    alternates: {
+      canonical: `https://www.crownaccumulator.com/research/${article.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://www.crownaccumulator.com/research/${article.slug}`,
+      siteName: "Crown Accumulator",
+      type: "article",
+      publishedTime: article.date,
+      authors: ["Crown Accumulator Metallurgy Lab"],
+      images: [
+        {
+          url: article.image,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [article.image],
+    },
+  };
 }
 
 function renderContent(content: string) {
@@ -54,55 +96,114 @@ export default async function ResearchArticlePage({ params }: Props) {
   const article = getResearchArticle(slug);
   if (!article) notFound();
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": `https://www.crownaccumulator.com/research/${article.slug}#article`,
+        headline: article.title,
+        alternativeHeadline: article.subtitle,
+        description: article.excerpt,
+        image: article.image,
+        datePublished: article.date,
+        author: {
+          "@type": "Organization",
+          name: "Crown Accumulator Metallurgy Laboratory",
+          url: "https://www.crownaccumulator.com",
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "Crown Accumulator",
+          url: "https://www.crownaccumulator.com",
+        },
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": `https://www.crownaccumulator.com/research/${article.slug}`,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `https://www.crownaccumulator.com/research/${article.slug}#breadcrumbs`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.crownaccumulator.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Research & Technical",
+            item: "https://www.crownaccumulator.com/research",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: article.title,
+            item: `https://www.crownaccumulator.com/research/${article.slug}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
-    <article className="bg-surface pb-24">
-      {/* Hero */}
-      <div className="bg-crown-navy py-16 text-white sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/research"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-300 transition-colors hover:text-white mb-6"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Research Library
-          </Link>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <article className="bg-surface pb-24">
+        {/* Hero */}
+        <div className="bg-crown-navy py-16 text-white sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <Link
+              href="/research"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-300 transition-colors hover:text-white mb-6"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to Research Library
+            </Link>
 
-          <span className="block text-xs font-bold uppercase tracking-widest text-solo-red-light mb-2">
-            {article.category}
-          </span>
-          <h1 className="font-display text-3xl font-bold text-white sm:text-5xl leading-tight">
-            {article.title}
-          </h1>
-          <p className="mt-2 text-base text-slate-300">{article.subtitle}</p>
-          <p className="mt-4 text-xs text-slate-400">Published {formatDate(article.date)}</p>
-        </div>
-      </div>
-
-      {/* Main Body */}
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-white p-8 border border-border shadow-xs sm:p-12">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl mb-8">
-            <Image src={article.image} alt={article.title} fill className="object-cover" priority sizes="100vw" />
+            <span className="block text-xs font-bold uppercase tracking-widest text-solo-red-light mb-2">
+              {article.category}
+            </span>
+            <h1 className="font-display text-3xl font-bold text-white sm:text-5xl leading-tight">
+              {article.title}
+            </h1>
+            <p className="mt-2 text-base text-slate-300">{article.subtitle}</p>
+            <p className="mt-4 text-xs text-slate-400">Published {formatDate(article.date)}</p>
           </div>
-
-          <div>{renderContent(article.content)}</div>
-
-          {article.references.length > 0 && (
-            <div className="mt-12 rounded-2xl bg-slate-50 p-6 border border-border">
-              <h3 className="font-display text-xs font-bold uppercase tracking-wider text-crown-navy">
-                References &amp; Academic Standards
-              </h3>
-              <ul className="mt-4 space-y-2">
-                {article.references.map((ref) => (
-                  <li key={ref} className="text-xs text-text-muted">
-                    — {ref}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
         </div>
-      </div>
-    </article>
+
+        {/* Main Body */}
+        <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-white p-8 border border-border shadow-xs sm:p-12">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-2xl mb-8">
+              <Image src={article.image} alt={article.title} fill className="object-cover" priority sizes="100vw" />
+            </div>
+
+            <div>{renderContent(article.content)}</div>
+
+            {article.references.length > 0 && (
+              <div className="mt-12 rounded-2xl bg-slate-50 p-6 border border-border">
+                <h3 className="font-display text-xs font-bold uppercase tracking-wider text-crown-navy">
+                  References &amp; Academic Standards
+                </h3>
+                <ul className="mt-4 space-y-2">
+                  {article.references.map((ref) => (
+                    <li key={ref} className="text-xs text-text-muted">
+                      — {ref}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      </article>
+    </>
   );
 }

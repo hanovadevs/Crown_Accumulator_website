@@ -10,9 +10,89 @@ import { cinematicImages } from "@/data/cinematic-images";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Battery Plates",
+  title: "Lead-Acid Battery Plates Manufacturer | Cast & Expanded Grids | Crown Accumulator",
   description:
-    "Crown Accumulator manufactures and distributes positive and negative lead-acid battery plates for assemblers worldwide.",
+    "Crown Accumulator manufactures and distributes high-purity positive and negative lead-acid battery plates for battery assemblers worldwide. In-house casting, paste density control, and tank formation.",
+  keywords: [
+    "battery plates manufacturer",
+    "lead acid battery plates",
+    "cast positive grids",
+    "expanded negative grids",
+    "tubular battery plates",
+    "battery plate distribution",
+    "formed battery plates",
+    "Crown Accumulator plates",
+    "automotive battery plates",
+    "solar battery plates",
+  ],
+  alternates: {
+    canonical: "https://www.crownaccumulator.com/battery-plates",
+  },
+  openGraph: {
+    title: "Lead-Acid Battery Plates Manufacturer | Crown Accumulator",
+    description:
+      "High-purity antimony and calcium alloys, automated pasting lines, and formation testing for motorcycle, automotive, and solar batteries.",
+    url: "https://www.crownaccumulator.com/battery-plates",
+    siteName: "Crown Accumulator",
+    type: "website",
+    images: [
+      {
+        url: "/images/battery_plate_production.png",
+        width: 1200,
+        height: 630,
+        alt: "Lead-Acid Battery Plate Manufacturing at Crown Accumulator",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lead-Acid Battery Plates Manufacturer | Crown Accumulator",
+    description:
+      "Precision-cast positive grids and expanded negative strips engineered to ±2% paste weight tolerance.",
+    images: ["/images/battery_plate_production.png"],
+  },
+};
+
+const platesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "@id": "https://www.crownaccumulator.com/battery-plates#product",
+      name: "Crown Accumulator High-Purity Lead-Acid Battery Plates",
+      description:
+        "Industrial lead-acid battery plates including cast positive grids, expanded negative grids, and tubular deep-cycle plates for battery assemblers.",
+      image: "https://www.crownaccumulator.com/images/battery_plate_production.png",
+      brand: {
+        "@type": "Brand",
+        name: "Crown Accumulator",
+      },
+      manufacturer: {
+        "@type": "Organization",
+        name: "Crown Accumulator",
+        url: "https://www.crownaccumulator.com",
+      },
+      category: "Industrial Battery Components",
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.crownaccumulator.com/battery-plates#breadcrumbs",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.crownaccumulator.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Battery Plates",
+          item: "https://www.crownaccumulator.com/battery-plates",
+        },
+      ],
+    },
+  ],
 };
 
 const plateProducts = getProductsByCategory("plates");
@@ -43,7 +123,12 @@ const process = [
 
 export default function BatteryPlatesPage() {
   return (
-    <div className="bg-surface">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(platesSchema) }}
+      />
+      <div className="bg-surface">
       {/* ─── HERO SECTION ─── */}
       <section className="relative overflow-hidden bg-crown-navy py-20 text-white sm:py-28">
         <div className="absolute inset-0 opacity-20">
@@ -172,5 +257,6 @@ export default function BatteryPlatesPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

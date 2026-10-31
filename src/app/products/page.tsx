@@ -1,150 +1,97 @@
-"use client";
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { ProductsFilterView } from "@/components/products/ProductsFilterView";
+import { products } from "@/data/products";
 
-import { useSearchParams } from "next/navigation";
-import { Suspense, useState, useEffect } from "react";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ProductCard } from "@/components/products/ProductCard";
-import {
-  products,
-  categoryLabels,
-  type ProductCategory,
-} from "@/data/products";
-import { cn } from "@/lib/utils";
-import { Filter, SlidersHorizontal } from "lucide-react";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+export const metadata: Metadata = {
+  title: "SOLO® Batteries & Battery Plates Catalog",
+  description:
+    "Explore Crown Accumulator's full catalog of SOLO motorcycle batteries, automotive starter batteries, deep-cycle solar batteries, tractor batteries, and industrial lead plates.",
+  keywords: [
+    "SOLO battery catalog",
+    "motorcycle batteries",
+    "automotive batteries",
+    "solar tubular batteries",
+    "tractor batteries",
+    "lead acid battery plates",
+    "battery specifications",
+    "12N7-4B battery",
+    "12N9-4B battery",
+    "DIN55 battery",
+    "Crown Accumulator products",
+  ],
+  alternates: {
+    canonical: "https://www.crownaccumulator.com/products",
+  },
+  openGraph: {
+    title: "SOLO® Batteries & Battery Plates Catalog | Crown Accumulator",
+    description:
+      "Complete technical specifications for SOLO motorcycle, automotive, solar, and industrial batteries, plus battery plates and sprockets.",
+    url: "https://www.crownaccumulator.com/products",
+    siteName: "Crown Accumulator",
+    type: "website",
+    images: [
+      {
+        url: "/images/solo_battery_product.png",
+        width: 1200,
+        height: 630,
+        alt: "Crown Accumulator Product Catalog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SOLO® Batteries & Battery Plates Catalog | Crown Accumulator",
+    description:
+      "Browse our high-performance lead-acid battery lineup and high-purity plate products.",
+    images: ["/images/solo_battery_product.png"],
+  },
+};
 
-const categories = Object.entries(categoryLabels) as [ProductCategory, string][];
-
-function ProductsContent() {
-  const searchParams = useSearchParams();
-  const activeCategoryParam = searchParams.get("category") as ProductCategory | null;
-  const activeBrandParam = searchParams.get("brand");
-
-  const [category, setCategory] = useState<ProductCategory | "all">(activeCategoryParam || "all");
-  const [selectedBrand, setSelectedBrand] = useState<string>(activeBrandParam || "all");
-
-  useEffect(() => {
-    if (activeCategoryParam) setCategory(activeCategoryParam);
-    if (activeBrandParam) setSelectedBrand(activeBrandParam);
-  }, [activeCategoryParam, activeBrandParam]);
-
-  let filtered = products;
-  if (category !== "all") {
-    filtered = filtered.filter((p) => p.category === category);
-  }
-  if (selectedBrand !== "all") {
-    filtered = filtered.filter((p) => p.brand === selectedBrand);
-  }
-
-  return (
-    <div className="bg-surface pb-24">
-      {/* Page Header */}
-      <section className="bg-crown-navy py-16 text-white sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <span className="font-display text-xs font-bold uppercase tracking-widest text-solo-red-light">
-            Catalog &amp; Specs
-          </span>
-          <h1 className="font-display mt-2 text-4xl font-bold text-white sm:text-5xl">
-            Complete Product Range
-          </h1>
-          <p className="mt-4 max-w-2xl text-sm text-slate-300">
-            Explore Crown Accumulator&apos;s full lineup of SOLO batteries, battery plates, sprockets, and OEM manufacturing solutions.
-          </p>
-        </div>
-      </section>
-
-      {/* Filter Bar */}
-      <section className="border-b border-border bg-white sticky top-16 z-30 shadow-xs">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col py-4 gap-4 sm:flex-row sm:items-center sm:justify-between">
-            {/* Category Tabs */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
-              <button
-                onClick={() => setCategory("all")}
-                className={cn(
-                  "font-display shrink-0 rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors",
-                  category === "all"
-                    ? "bg-crown-navy text-white shadow-xs"
-                    : "bg-slate-100 text-text-muted hover:text-crown-navy"
-                )}
-              >
-                All ({products.length})
-              </button>
-              {categories.map(([key, label]) => {
-                const count = products.filter((p) => p.category === key).length;
-                return (
-                  <button
-                    key={key}
-                    onClick={() => setCategory(key)}
-                    className={cn(
-                      "font-display shrink-0 rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors",
-                      category === key
-                        ? "bg-crown-navy text-white shadow-xs"
-                        : "bg-slate-100 text-text-muted hover:text-crown-navy"
-                    )}
-                  >
-                    {label} ({count})
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Brand Filter */}
-            <div className="flex items-center gap-2 shrink-0">
-              <span className="text-xs text-text-muted font-medium flex items-center gap-1">
-                <SlidersHorizontal className="h-3.5 w-3.5" />
-                Brand:
-              </span>
-              <select
-                value={selectedBrand}
-                onChange={(e) => setSelectedBrand(e.target.value)}
-                className="rounded-lg border border-border bg-slate-50 px-3 py-1.5 text-xs font-semibold text-text-primary outline-none focus:border-crown-navy"
-              >
-                <option value="all">All Brands</option>
-                <option value="SOLO">SOLO®</option>
-                <option value="Crown Accumulator">Crown Accumulator</option>
-                <option value="OEM">OEM Private Label</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Product Cards Grid */}
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {filtered.length === 0 ? (
-            <div className="py-20 text-center rounded-2xl border border-dashed border-border bg-white">
-              <p className="font-display text-lg font-bold text-text-primary">
-                No products found matching your filters.
-              </p>
-              <button
-                onClick={() => {
-                  setCategory("all");
-                  setSelectedBrand("all");
-                }}
-                className="mt-4 font-display text-xs font-bold uppercase tracking-wider text-crown-maroon underline"
-              >
-                Reset Filters
-              </button>
-            </div>
-          ) : (
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {filtered.map((product) => (
-                <ProductCard key={product.slug} product={product} />
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-    </div>
-  );
-}
+const catalogSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Crown Accumulator & SOLO Batteries Catalog",
+  url: "https://www.crownaccumulator.com/products",
+  description:
+    "Full catalog of SOLO automotive, motorcycle, tractor, and solar batteries, battery plates, and OEM manufacturing solutions.",
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: products.length,
+    itemListElement: products.map((product, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Product",
+        name: `${product.brand} ${product.model} - ${product.name}`,
+        url: `https://www.crownaccumulator.com/products/${product.slug}`,
+        description: product.tagline,
+        image: `https://www.crownaccumulator.com${product.heroImage}`,
+        brand: {
+          "@type": "Brand",
+          name: product.brand,
+        },
+      },
+    })),
+  },
+};
 
 export default function ProductsPage() {
   return (
-    <Suspense fallback={<div className="py-32 text-center text-text-muted">Loading products...</div>}>
-      <ProductsContent />
-    </Suspense>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(catalogSchema) }}
+      />
+      <Suspense
+        fallback={
+          <div className="py-32 text-center text-text-muted">
+            Loading products...
+          </div>
+        }
+      >
+        <ProductsFilterView />
+      </Suspense>
+    </>
   );
 }

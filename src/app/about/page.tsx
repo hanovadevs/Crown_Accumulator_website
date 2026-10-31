@@ -10,9 +10,93 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Crown Accumulator | 40+ Years of Battery Manufacturing Heritage",
   description:
-    `Learn about Crown Accumulator — manufacturing & development since ${company.foundedYear}. SOLO batteries, plates, and sprockets.`,
+    `Established in ${company.foundedYear}, Crown Accumulator is an ISO 9001:2015 certified manufacturer of SOLO® automotive, motorcycle, and solar batteries, high-purity plates, and precision motorcycle parts.`,
+  keywords: [
+    "About Crown Accumulator",
+    "Crown Accumulator history",
+    "Shahid Mahmood Crown Accumulator",
+    "battery manufacturer Pakistan",
+    "SOLO battery brand history",
+    "lead acid battery plant Lahore",
+    "Ravi Automobile battery supplier",
+    "Road Prince battery supplier",
+    "ISO 9001 battery manufacturer",
+  ],
+  alternates: {
+    canonical: "https://www.crownaccumulator.com/about",
+  },
+  openGraph: {
+    title: "About Crown Accumulator | 40+ Years of Battery Manufacturing Heritage",
+    description:
+      "From battery plate casting in 1984 to supplying Pakistan's largest automotive and motorcycle manufacturers with SOLO® batteries.",
+    url: "https://www.crownaccumulator.com/about",
+    siteName: "Crown Accumulator",
+    type: "website",
+    images: [
+      {
+        url: "/images/crown_factory_facility.png",
+        width: 1200,
+        height: 630,
+        alt: "Crown Accumulator Factory History and Plant",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Crown Accumulator | 40+ Years of Stored Energy Expertise",
+    description:
+      "Vertical integration, in-house metallurgy lab, and trusted supplier to major automotive OEMs.",
+    images: ["/images/crown_factory_facility.png"],
+  },
+};
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://www.crownaccumulator.com/about#aboutpage",
+      name: "About Crown Accumulator",
+      url: "https://www.crownaccumulator.com/about",
+      description:
+        "Historical background, milestones, and core values of Crown Accumulator.",
+      mainEntity: {
+        "@type": "Organization",
+        name: "Crown Accumulator",
+        foundingDate: "1984",
+        founder: {
+          "@type": "Person",
+          name: "Shahid Mahmood",
+          jobTitle: "Founder & Managing Director",
+        },
+        numberOfEmployees: {
+          "@type": "QuantitativeValue",
+          minValue: 100,
+          maxValue: 500,
+        },
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.crownaccumulator.com/about#breadcrumbs",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.crownaccumulator.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "About Us",
+          item: "https://www.crownaccumulator.com/about",
+        },
+      ],
+    },
+  ],
 };
 
 const milestones = [
@@ -47,7 +131,12 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="bg-surface">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
+      <div className="bg-surface">
       {/* ─── HERO SECTION ─── */}
       <section className="relative overflow-hidden bg-crown-navy py-20 sm:py-28 text-white">
         <div className="absolute inset-0 opacity-20">
@@ -240,5 +329,6 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

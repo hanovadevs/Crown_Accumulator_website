@@ -9,16 +9,94 @@ import { CheckCircle2, ShieldCheck, Zap, ArrowRight, Award } from "lucide-react"
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "SOLO Brand",
+  title: "SOLO® Batteries & Parts | High-Performance Motorcycle, Car & Solar Batteries",
   description:
-    "SOLO Batteries & Parts — Crown Accumulator's flagship brand for motorcycle, automotive, tractor, solar, and UPS batteries.",
+    "SOLO® is Crown Accumulator's flagship brand engineered for extreme weather, high CCA cold-cranking performance, vibration resistance, and long-life deep-cycle backup.",
+  keywords: [
+    "SOLO batteries",
+    "SOLO motorcycle battery",
+    "SOLO automotive battery",
+    "SOLO 12N7-4B",
+    "SOLO 12N9-4B",
+    "SOLO DIN55",
+    "SOLO solar tubular battery",
+    "Crown Accumulator SOLO brand",
+    "high CCA motorcycle battery",
+    "vibration resistant battery",
+  ],
+  alternates: {
+    canonical: "https://www.crownaccumulator.com/solo",
+  },
+  openGraph: {
+    title: "SOLO® Batteries & Parts | Crown Accumulator Flagship Brand",
+    description:
+      "Built for riders, drivers, and solar systems. High-density paste, automated casting, and rigorous formation testing.",
+    url: "https://www.crownaccumulator.com/solo",
+    siteName: "Crown Accumulator",
+    type: "website",
+    images: [
+      {
+        url: "/images/solo_motorcycle_battery.png",
+        width: 1200,
+        height: 630,
+        alt: "SOLO Motorcycle & Automotive Batteries",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SOLO® Batteries & Parts | High-Performance Power",
+    description:
+      "Discover the SOLO® product family engineered with heavy-duty cast grids and maximum cranking power.",
+    images: ["/images/solo_motorcycle_battery.png"],
+  },
+};
+
+const soloBrandSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Brand",
+      "@id": "https://www.crownaccumulator.com/solo#brand",
+      name: "SOLO",
+      alternateName: ["SOLO Batteries", "SOLO Batteries & Parts"],
+      url: "https://www.crownaccumulator.com/solo",
+      logo: "https://www.crownaccumulator.com/logos/solo-batteries.png",
+      slogan: "Maximum Cranking, Extreme Endurance",
+      description:
+        "Flagship battery brand by Crown Accumulator providing motorcycle, automotive, solar, and industrial power solutions.",
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.crownaccumulator.com/solo#breadcrumbs",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.crownaccumulator.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "SOLO Brand",
+          item: "https://www.crownaccumulator.com/solo",
+        },
+      ],
+    },
+  ],
 };
 
 const soloProducts = products.filter((p) => p.brand === "SOLO");
 
 export default function SoloBrandPage() {
   return (
-    <div className="bg-surface">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(soloBrandSchema) }}
+      />
+      <div className="bg-surface">
       {/* ─── HERO SECTION ─── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-red-950 py-20 text-white sm:py-28">
         <div className="absolute inset-0 opacity-20">
@@ -165,5 +243,6 @@ export default function SoloBrandPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }
