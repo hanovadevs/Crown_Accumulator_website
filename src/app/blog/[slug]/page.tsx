@@ -11,7 +11,9 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return blogPosts.map((p) => ({ slug: p.slug }));
+  return blogPosts
+    .filter((p) => p.slug !== "hanova-devs")
+    .map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

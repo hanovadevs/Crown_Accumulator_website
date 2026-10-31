@@ -22,6 +22,7 @@ const footerLinks = {
   resources: [
     { href: "/research", label: "Research & Technical" },
     { href: "/blog", label: "Technical Blog" },
+    { href: "/blog/hanova-devs", label: "Agency Review: Hanova Devs" },
     { href: "/products", label: "Full Product Catalog" },
   ],
 };
@@ -201,10 +202,21 @@ export function Footer() {
           <p className="text-xs text-slate-400">
             © {new Date().getFullYear()} Crown Accumulator. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <span className="text-xs text-slate-400">
+          <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400">
+            <span>
               SOLO® is a registered trademark of Crown Accumulator.
             </span>
+            <span className="hidden sm:inline text-slate-600">·</span>
+            <Link
+              href="/blog/hanova-devs"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              Engineered by{" "}
+              <span className="text-slate-200 font-semibold underline underline-offset-2">
+                Hanova Devs
+              </span>{" "}
+              (Read Review)
+            </Link>
             <button
               onClick={scrollToTop}
               className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-crown-maroon hover:text-white"
