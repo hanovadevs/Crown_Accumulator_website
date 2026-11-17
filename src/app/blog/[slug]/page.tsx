@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogPost, blogPosts } from "@/data/blog";
 import { formatDate } from "@/lib/utils";
-import { ArrowLeft, Clock, User, Calendar } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -140,7 +140,7 @@ export default async function BlogPostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
       />
       <article className="bg-surface pb-24">
-        {/* Hero Header Image */}
+
         <div className="relative h-80 overflow-hidden sm:h-96 bg-crown-navy">
           <Image
             src={post.image}
@@ -150,8 +150,8 @@ export default async function BlogPostPage({ params }: Props) {
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-          
+          <div className="absolute inset-0 bg-crown-navy/80" />
+
           <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-12">
             <div className="mx-auto max-w-4xl text-white">
               <Link
@@ -172,22 +172,21 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </div>
 
-        {/* Main Body */}
         <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-6 text-xs text-text-muted">
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1 font-semibold text-text-primary">
-                <User className="h-4 w-4 text-crown-navy" />
+
                 {post.author}
               </span>
               <span>·</span>
               <span className="flex items-center gap-1">
-                <Calendar className="h-4 w-4 text-crown-maroon" />
+
                 {formatDate(post.date)}
               </span>
               <span>·</span>
               <span className="flex items-center gap-1">
-                <Clock className="h-4 w-4 text-crown-navy" />
+
                 {post.readTime}
               </span>
             </div>
@@ -196,7 +195,7 @@ export default async function BlogPostPage({ params }: Props) {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-slate-100 px-3 py-1 text-[10px] font-bold text-crown-navy"
+                  className="rounded-sm bg-slate-100 px-3 py-1 text-[10px] font-bold text-crown-navy"
                 >
                   #{tag}
                 </span>
@@ -204,7 +203,7 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </div>
 
-          <div className="mt-8 rounded-3xl bg-white p-8 shadow-xs border border-border sm:p-12">
+          <div className="surface-card mt-8 rounded-sm bg-white p-8 border border-border sm:p-12">
             {renderContent(post.content)}
           </div>
         </div>

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { blogPosts } from "@/data/blog";
 import { formatDate } from "@/lib/utils";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Clock, User } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Battery Engineering Blog & Maintenance Guides | Crown Accumulator",
@@ -110,7 +109,7 @@ export default function BlogPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogCatalogSchema) }}
       />
       <div className="bg-surface pb-24">
-        {/* Header */}
+
         <section className="bg-crown-navy py-16 text-white sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <span className="font-display text-xs font-bold uppercase tracking-widest text-solo-red-light">
@@ -127,12 +126,12 @@ export default function BlogPage() {
 
         <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {/* Featured Article */}
+
             {featuredPost && (
               <ScrollReveal direction="up" className="mb-16">
                 <Link
                   href={`/blog/${featuredPost.slug}`}
-                  className="group grid overflow-hidden rounded-3xl border border-border bg-white shadow-xs transition-all hover:shadow-xl lg:grid-cols-12"
+                  className="surface-card group grid overflow-hidden rounded-sm border border-border bg-white transition-all lg:grid-cols-12"
                 >
                   <div className="relative aspect-[16/10] lg:aspect-auto lg:col-span-7 overflow-hidden">
                     <Image
@@ -155,14 +154,14 @@ export default function BlogPage() {
                       {featuredPost.excerpt}
                     </p>
 
-                    <div className="mt-6 flex items-center gap-4 text-xs text-text-muted border-t border-slate-100 pt-4">
+                    <div className="mt-6 flex items-center gap-4 text-xs text-text-muted pt-4">
                       <span className="flex items-center gap-1">
-                        <User className="h-3.5 w-3.5 text-crown-navy" />
+
                         {featuredPost.author}
                       </span>
                       <span>·</span>
                       <span className="flex items-center gap-1">
-                        <Clock className="h-3.5 w-3.5 text-crown-maroon" />
+
                         {featuredPost.readTime}
                       </span>
                     </div>
@@ -171,13 +170,12 @@ export default function BlogPage() {
               </ScrollReveal>
             )}
 
-            {/* Remaining Posts */}
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {remainingPosts.map((post, idx) => (
                 <ScrollReveal key={post.slug} delay={idx * 0.08}>
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                    className="surface-card group flex flex-col overflow-hidden rounded-sm border border-border bg-white transition-all duration-300"
                   >
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <Image
@@ -198,7 +196,7 @@ export default function BlogPage() {
                       <p className="mt-2 text-xs leading-relaxed text-text-muted line-clamp-2 flex-1">
                         {post.excerpt}
                       </p>
-                      <p className="mt-4 text-[11px] text-text-muted border-t border-slate-100 pt-3">
+                      <p className="mt-4 text-[11px] text-text-muted pt-3">
                         {formatDate(post.date)} · {post.author}
                       </p>
                     </div>

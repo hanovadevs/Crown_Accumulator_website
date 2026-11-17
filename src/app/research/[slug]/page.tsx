@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getResearchArticle, researchArticles } from "@/data/research";
 import { formatDate } from "@/lib/utils";
-import { ArrowLeft, BookOpen } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -156,7 +156,7 @@ export default async function ResearchArticlePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
       <article className="bg-surface pb-24">
-        {/* Hero */}
+
         <div className="bg-crown-navy py-16 text-white sm:py-20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <Link
@@ -178,17 +178,16 @@ export default async function ResearchArticlePage({ params }: Props) {
           </div>
         </div>
 
-        {/* Main Body */}
         <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="rounded-3xl bg-white p-8 border border-border shadow-xs sm:p-12">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-2xl mb-8">
+          <div className="surface-card rounded-sm bg-white p-8 border border-border sm:p-12">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-sm mb-8">
               <Image src={article.image} alt={article.title} fill className="object-cover" priority sizes="100vw" />
             </div>
 
             <div>{renderContent(article.content)}</div>
 
             {article.references.length > 0 && (
-              <div className="mt-12 rounded-2xl bg-slate-50 p-6 border border-border">
+              <div className="mt-12 rounded-sm bg-slate-50 p-6 border border-border">
                 <h3 className="font-display text-xs font-bold uppercase tracking-wider text-crown-navy">
                   References &amp; Academic Standards
                 </h3>

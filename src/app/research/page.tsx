@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { researchArticles } from "@/data/research";
-import { BookOpen, ArrowRight, FileText } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -101,7 +101,7 @@ export default function ResearchPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(researchCatalogSchema) }}
       />
       <div className="bg-surface pb-24">
-        {/* Header */}
+
         <section className="bg-crown-navy py-16 text-white sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <span className="font-display text-xs font-bold uppercase tracking-widest text-solo-red-light">
@@ -123,7 +123,7 @@ export default function ResearchPage() {
                 <ScrollReveal key={article.slug} delay={idx * 0.08}>
                   <Link
                     href={`/research/${article.slug}`}
-                    className="group grid overflow-hidden rounded-3xl border border-border bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:grid-cols-12"
+                    className="surface-card group grid overflow-hidden rounded-sm border border-border bg-white transition-all duration-300 md:grid-cols-12"
                   >
                     <div className="relative aspect-[16/10] overflow-hidden md:col-span-5 md:aspect-auto">
                       <Image
@@ -142,7 +142,7 @@ export default function ResearchPage() {
                           </span>
                           <span className="text-slate-300">·</span>
                           <span className="flex items-center gap-1 text-xs text-text-muted">
-                            <BookOpen className="h-3 w-3 text-crown-navy" />
+
                             Research Paper
                           </span>
                         </div>
@@ -156,7 +156,7 @@ export default function ResearchPage() {
                           {article.excerpt}
                         </p>
 
-                        <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
+                        <div className="mt-6 flex items-center justify-between pt-4">
                           <span className="text-[11px] text-text-muted">
                             Published {article.date} · Metallurgy Lab
                           </span>

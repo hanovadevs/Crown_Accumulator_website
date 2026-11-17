@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProductCard } from "@/components/products/ProductCard";
 import { getProductsByCategory } from "@/data/products";
-import { ArrowRight, Cog, FlaskConical, Package, CheckCircle2, ShieldCheck, Factory } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { company } from "@/data/company";
 import { cinematicImages } from "@/data/cinematic-images";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -99,21 +99,21 @@ const plateProducts = getProductsByCategory("plates");
 
 const process = [
   {
-    icon: Cog,
+
     step: "01",
     title: "Grid Casting & Expansion",
     description:
       "High-purity lead alloy is melted and cast into positive grids on automated casting lines. Negative grids are expanded from continuous lead strip for maximum conductivity.",
   },
   {
-    icon: FlaskConical,
+
     step: "02",
     title: "Paste Mixing & Application",
     description:
       "Active lead oxide paste is formulated to precise density recipes, applied onto grids, and cured in humidity-controlled chambers for 48–72 hours.",
   },
   {
-    icon: Package,
+
     step: "03",
     title: "Formation & Quality Control",
     description:
@@ -129,7 +129,7 @@ export default function BatteryPlatesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(platesSchema) }}
       />
       <div className="bg-surface">
-      {/* ─── HERO SECTION ─── */}
+
       <section className="relative overflow-hidden bg-crown-navy py-20 text-white sm:py-28">
         <div className="absolute inset-0 opacity-20">
           <Image
@@ -156,7 +156,7 @@ export default function BatteryPlatesPage() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/contact?subject=Battery+Plate+Order"
-                className="font-display inline-flex items-center gap-2 rounded-xl bg-crown-maroon px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md hover:bg-crown-maroon-dark"
+                className="font-display inline-flex items-center gap-2 rounded-sm bg-crown-maroon px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-crown-maroon-dark"
               >
                 Request Plate Quote
                 <ArrowRight className="h-4 w-4" />
@@ -166,12 +166,11 @@ export default function BatteryPlatesPage() {
         </div>
       </section>
 
-      {/* ─── MANUFACTURING PROCESS ─── */}
       <section className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
             <ScrollReveal direction="right">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-border shadow-xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-border">
                 <Image
                   src={cinematicImages.plateProduction}
                   alt="Battery plate manufacturing process"
@@ -203,7 +202,6 @@ export default function BatteryPlatesPage() {
         </div>
       </section>
 
-      {/* ─── STEP BY STEP PROCESS ─── */}
       <section className="bg-surface-subtle py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -214,14 +212,11 @@ export default function BatteryPlatesPage() {
 
           <div className="mt-16 grid gap-8 md:grid-cols-3">
             {process.map((step, idx) => {
-              const IconComp = step.icon;
               return (
                 <ScrollReveal key={step.step} delay={idx * 0.1}>
-                  <div className="rounded-2xl border border-border bg-white p-8 shadow-xs">
+                  <div className="surface-card rounded-sm border border-border bg-white p-8">
                     <div className="flex items-center justify-between">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-crown-navy/10 text-crown-navy">
-                        <IconComp className="h-6 w-6" />
-                      </div>
+
                       <span className="font-display text-2xl font-bold text-slate-300">
                         {step.step}
                       </span>
@@ -241,7 +236,6 @@ export default function BatteryPlatesPage() {
         </div>
       </section>
 
-      {/* ─── PLATE PRODUCTS SHOWCASE ─── */}
       <section className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading

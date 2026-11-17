@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProductCard } from "@/components/products/ProductCard";
 import { products } from "@/data/products";
 import { cinematicImages } from "@/data/cinematic-images";
-import { CheckCircle2, ShieldCheck, Zap, ArrowRight, Award } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -97,8 +97,8 @@ export default function SoloBrandPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(soloBrandSchema) }}
       />
       <div className="bg-surface">
-      {/* ─── HERO SECTION ─── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-red-950 py-20 text-white sm:py-28">
+
+      <section className="relative overflow-hidden bg-crown-navy py-20 text-white sm:py-28">
         <div className="absolute inset-0 opacity-20">
           <Image
             src={cinematicImages.soloMotorcycle}
@@ -130,14 +130,14 @@ export default function SoloBrandPage() {
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Link
                     href="#solo-range"
-                    className="font-display inline-flex items-center gap-2 rounded-xl bg-solo-red px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all hover:bg-solo-red-dark"
+                    className="font-display inline-flex items-center gap-2 rounded-sm bg-solo-red px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-solo-red-dark"
                   >
                     View SOLO Product Range
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link
                     href="/contact"
-                    className="font-display inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800/80 px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-slate-800"
+                    className="font-display inline-flex items-center gap-2 rounded-sm border border-slate-700 bg-slate-800/80 px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-slate-800"
                   >
                     Become a Dealer
                   </Link>
@@ -148,9 +148,9 @@ export default function SoloBrandPage() {
             <div className="lg:col-span-5">
               <ScrollReveal direction="left">
                 <div className="relative mx-auto max-w-md">
-                  <div className="absolute -inset-4 rounded-3xl bg-solo-red/30 blur-2xl" />
-                  <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 p-3 shadow-2xl">
-                    <div className="relative aspect-square overflow-hidden rounded-2xl">
+
+                  <div className="relative overflow-hidden rounded-sm border border-slate-800 bg-slate-900 p-3">
+                    <div className="relative aspect-square overflow-hidden rounded-sm">
                       <Image
                         src={cinematicImages.soloProduct}
                         alt="SOLO 12V Battery"
@@ -167,7 +167,6 @@ export default function SoloBrandPage() {
         </div>
       </section>
 
-      {/* ─── CATEGORY TICKER ─── */}
       <section className="border-y border-border bg-solo-red py-6 text-white">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6 px-4 sm:px-6">
           {[
@@ -178,14 +177,13 @@ export default function SoloBrandPage() {
             "UPS & Backup",
           ].map((cat) => (
             <span key={cat} className="font-display text-sm font-bold uppercase tracking-widest flex items-center gap-2">
-              <Zap className="h-4 w-4 text-white/80" />
+
               {cat}
             </span>
           ))}
         </div>
       </section>
 
-      {/* ─── PRODUCT RANGE ─── */}
       <section id="solo-range" className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -202,12 +200,11 @@ export default function SoloBrandPage() {
         </div>
       </section>
 
-      {/* ─── WHY CHOOSE SOLO ─── */}
       <section className="bg-surface-subtle py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <ScrollReveal direction="right">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-border shadow-xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-border">
                 <Image
                   src={cinematicImages.soloMotorcycle}
                   alt="SOLO Motorcycle Battery in use"
@@ -233,7 +230,7 @@ export default function SoloBrandPage() {
                   "Nationwide Support — Network of 200+ authorized dealers and service points",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3 text-sm text-text-secondary">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-solo-red mt-0.5" />
+
                     <span>{item}</span>
                   </div>
                 ))}

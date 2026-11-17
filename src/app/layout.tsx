@@ -1,24 +1,34 @@
 import type { Metadata, Viewport } from "next";
-import { Rajdhani, DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Main } from "@/components/layout/Main";
 import "./globals.css";
 
-const rajdhani = Rajdhani({
-  variable: "--font-rajdhani",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const manrope = localFont({
+  src: [
+    { path: "../../public/fonts/Manrope-400.ttf", weight: "400" },
+    { path: "../../public/fonts/Manrope-500.ttf", weight: "500" },
+    { path: "../../public/fonts/Manrope-600.ttf", weight: "600" },
+    { path: "../../public/fonts/Manrope-700.ttf", weight: "700" },
+  ],
+  variable: "--font-manrope",
+  display: "swap",
 });
 
-const dmSans = DM_Sans({
+const dmSans = localFont({
+  src: [
+    { path: "../../public/fonts/DMSans-400.ttf", weight: "400" },
+    { path: "../../public/fonts/DMSans-500.ttf", weight: "500" },
+    { path: "../../public/fonts/DMSans-600.ttf", weight: "600" },
+    { path: "../../public/fonts/DMSans-700.ttf", weight: "700" },
+  ],
   variable: "--font-dm-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0f172a",
+  themeColor: "#202521",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -177,7 +187,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${rajdhani.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${manrope.variable} ${dmSans.variable} h-full antialiased`}
     >
       <head>
         <script
