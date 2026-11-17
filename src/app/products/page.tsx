@@ -6,18 +6,17 @@ import { products } from "@/data/products";
 export const metadata: Metadata = {
   title: "SOLO® Batteries & Battery Plates Catalog",
   description:
-    "Explore Crown Accumulator's full catalog of SOLO motorcycle batteries, automotive starter batteries, deep-cycle solar batteries, tractor batteries, and industrial lead plates.",
+    "Explore SOLO Super 4, MB 200, and ZB 230 batteries alongside 13 battery plate profiles. View product details and enquire directly with Crown Accumulator.",
   keywords: [
     "SOLO battery catalog",
     "motorcycle batteries",
-    "automotive batteries",
-    "solar tubular batteries",
-    "tractor batteries",
+
+
     "lead acid battery plates",
     "battery specifications",
-    "12N7-4B battery",
-    "12N9-4B battery",
-    "DIN55 battery",
+    "SOLO Super 4",
+    "SOLO MB 200",
+    "SOLO ZB 230",
     "Crown Accumulator products",
   ],
   alternates: {
@@ -26,16 +25,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SOLO® Batteries & Battery Plates Catalog | Crown Accumulator",
     description:
-      "Complete technical specifications for SOLO motorcycle, automotive, solar, and industrial batteries, plus battery plates and sprockets.",
+      "Product images and details for the SOLO battery range and Crown Accumulator battery plate selection.",
     url: "https://www.crownaccumulator.com/products",
     siteName: "Crown Accumulator",
     type: "website",
     images: [
       {
-        url: "/images/solo_battery_product.png",
-        width: 1200,
-        height: 630,
-        alt: "Crown Accumulator Product Catalog",
+        url: "/images/products/solo-zb-230.webp",
+        width: 1122,
+        height: 1402,
+        alt: "SOLO ZB 230 12V battery",
       },
     ],
   },
@@ -44,7 +43,7 @@ export const metadata: Metadata = {
     title: "SOLO® Batteries & Battery Plates Catalog | Crown Accumulator",
     description:
       "Browse our high-performance lead-acid battery lineup and high-purity plate products.",
-    images: ["/images/solo_battery_product.png"],
+    images: ["/images/products/solo-zb-230.webp"],
   },
 };
 
@@ -54,7 +53,7 @@ const catalogSchema = {
   name: "Crown Accumulator & SOLO Batteries Catalog",
   url: "https://www.crownaccumulator.com/products",
   description:
-    "Full catalog of SOLO automotive, motorcycle, tractor, and solar batteries, battery plates, and OEM manufacturing solutions.",
+    "SOLO Super 4, MB 200, and ZB 230 batteries and 13 battery plate profiles.",
   mainEntity: {
     "@type": "ItemList",
     numberOfItems: products.length,
@@ -63,7 +62,7 @@ const catalogSchema = {
       position: index + 1,
       item: {
         "@type": "Product",
-        name: `${product.brand} ${product.model} - ${product.name}`,
+        name: product.name,
         url: `https://www.crownaccumulator.com/products/${product.slug}`,
         description: product.tagline,
         image: `https://www.crownaccumulator.com${product.heroImage}`,

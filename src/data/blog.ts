@@ -8,6 +8,7 @@ export interface BlogPost {
   readTime: string;
   category: string;
   image: string;
+  imageAlt: string;
   tags: string[];
 }
 
@@ -21,8 +22,8 @@ export const blogPosts: BlogPost[] = [
     date: "2026-10-31",
     readTime: "9 min read",
     category: "Agency Spotlight",
-    image:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80",
+    image: "/images/products/solo-mb-200.webp",
+    imageAlt: "SOLO MB 200 battery with red lid",
     tags: [
       "Hanova Devs",
       "hanovadevs.com",
@@ -54,8 +55,8 @@ At Crown Accumulator, we demanded an engineering team capable of building a high
     date: "2026-03-15",
     readTime: "6 min read",
     category: "Guides",
-    image:
-      "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=1200&q=80",
+    image: "/images/products/solo-super-4.webp",
+    imageAlt: "SOLO 12V Super 4 battery with cable leads",
     tags: ["motorcycle", "maintenance", "SOLO"],
     content: `When a rider walks into a shop asking for "any 12V battery," the result is often a mismatch — wrong terminal layout, insufficient cranking amps, or a case that doesn't fit the battery tray.
 
@@ -78,8 +79,8 @@ At Crown Accumulator, we demanded an engineering team capable of building a high
     date: "2026-02-28",
     readTime: "8 min read",
     category: "Industry",
-    image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80",
+    image: "/images/products/plate-chocolate-brown.webp",
+    imageAlt: "Brown battery plate with upper-right lug",
     tags: ["manufacturing", "sustainability", "lead-acid"],
     content: `A lead-acid battery is one of the most recycled consumer products on earth — over 99% of lead in spent batteries is recovered and reused. Here's how the cycle works at Crown Accumulator.
 
@@ -104,8 +105,8 @@ At Crown Accumulator, we demanded an engineering team capable of building a high
     date: "2026-01-20",
     readTime: "10 min read",
     category: "Solar",
-    image:
-      "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80",
+    image: "/images/products/solo-zb-230.webp",
+    imageAlt: "SOLO ZB 230 battery with blue lid",
     tags: ["solar", "deep-cycle", "sizing"],
     content: `The most common mistake in solar installations is undersizing the battery bank. Here's a straightforward method our engineers use in the field.
 
@@ -132,8 +133,8 @@ At Crown Accumulator, we demanded an engineering team capable of building a high
     date: "2025-12-10",
     readTime: "7 min read",
     category: "Manufacturing",
-    image:
-      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1200&q=80",
+    image: "/images/products/plate-graphite.webp",
+    imageAlt: "Graphite battery plate with upper-left lug",
     tags: ["plates", "quality", "OEM"],
     content: `Battery assemblers who buy plates from Crown Accumulator often ask: what exactly are we paying for? The answer lies in three layers of control.
 
@@ -154,8 +155,8 @@ At Crown Accumulator, we demanded an engineering team capable of building a high
     date: "2025-11-05",
     readTime: "5 min read",
     category: "Maintenance",
-    image:
-      "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1200&q=80",
+    image: "/images/products/solo-mb-200.webp",
+    imageAlt: "SOLO MB 200 12V battery",
     tags: ["automotive", "winter", "tips"],
     content: `Battery failures spike in winter — not because batteries die from cold alone, but because cold exposes weaknesses that warm weather masked.
 

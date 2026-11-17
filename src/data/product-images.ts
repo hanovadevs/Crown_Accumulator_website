@@ -1,0 +1,18 @@
+export const productImages = {
+  super4: "/images/products/solo-super-4.webp",
+  mb200: "/images/products/solo-mb-200.webp",
+  zb230: "/images/products/solo-zb-230.webp",
+  chocolatePlate: "/images/products/plate-chocolate-brown.webp",
+  patternedPlate: "/images/products/plate-patterned-charcoal.webp",
+  brownPlate: "/images/products/plate-wide-brown.webp",
+  burgundyPlate: "/images/products/plate-burgundy.webp",
+  mottledPlate: "/images/products/plate-mottled.webp",
+  grayPlate: "/images/products/plate-warm-gray.webp",
+  taupePlate: "/images/products/plate-wide-taupe.webp",
+  graphitePlate: "/images/products/plate-graphite.webp",
+  charcoalPlate: "/images/products/plate-charcoal.webp",
+  ochrePlate: "/images/products/plate-ochre.webp",
+  sandyPlate: "/images/products/plate-sandy-beige.webp",
+  olivePlate: "/images/products/plate-olive-gray.webp",
+  tallPlate: "/images/products/plate-tall-beige.webp",
+} as const;

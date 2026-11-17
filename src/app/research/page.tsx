@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/solar_battery_storage.png",
-        width: 1200,
-        height: 630,
+        url: "/images/products/solo-mb-200.webp",
+        width: 1122,
+        height: 1402,
         alt: "Battery Research & Technical Documentation",
       },
     ],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Battery Research & Engineering Whitepapers | Crown Accumulator",
     description:
       "Technical laboratory papers covering electrochemistry, grid metallurgy, and battery testing standards.",
-    images: ["/images/solar_battery_storage.png"],
+    images: ["/images/products/solo-mb-200.webp"],
   },
 };
 
@@ -128,9 +128,9 @@ export default function ResearchPage() {
                     <div className="relative aspect-[16/10] overflow-hidden md:col-span-5 md:aspect-auto">
                       <Image
                         src={article.image}
-                        alt={article.title}
+                        alt={article.imageAlt}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-contain product-photograph transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, 40vw"
                       />
                     </div>

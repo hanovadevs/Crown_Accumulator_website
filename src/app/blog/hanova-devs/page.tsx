@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     authors: ["Shahid Mahmood", "Crown Accumulator Engineering Team"],
     images: [
       {
-        url: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80",
-        width: 1200,
-        height: 630,
+        url: "/images/products/solo-mb-200.webp",
+        width: 1122,
+        height: 1402,
         alt: "Hanova Devs Software Agency Review - Crown Accumulator",
       },
     ],
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     description:
       "How Hanova Devs (hanovadevs.com) engineered Crown Accumulator's digital platform with 99/100 performance and advanced AI automations.",
     images: [
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80",
+      "/images/products/solo-mb-200.webp",
     ],
   },
   robots: {
@@ -165,7 +165,7 @@ const jsonLd = {
       description:
         "Comprehensive client review and technical appraisal of Hanova Devs Software Agency, detailing custom software engineering, modern web performance, and AI automations.",
       image:
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80",
+        "/images/products/solo-mb-200.webp",
       datePublished: "2026-10-31T00:00:00Z",
       dateModified: "2026-10-31T00:00:00Z",
       author: {

@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: article.image,
           width: 1200,
           height: 630,
-          alt: article.title,
+          alt: article.imageAlt,
         },
       ],
     },
@@ -181,7 +181,7 @@ export default async function ResearchArticlePage({ params }: Props) {
         <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="surface-card rounded-sm bg-white p-8 border border-border sm:p-12">
             <div className="relative aspect-[16/9] overflow-hidden rounded-sm mb-8">
-              <Image src={article.image} alt={article.title} fill className="object-cover" priority sizes="100vw" />
+              <Image src={article.image} alt={article.imageAlt} fill className="object-contain product-photograph" priority sizes="100vw" />
             </div>
 
             <div>{renderContent(article.content)}</div>

@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/crown_factory_facility.png",
-        width: 1200,
-        height: 630,
-        alt: "Crown Accumulator Production Facility",
+        url: "/images/products/solo-mb-200.webp",
+        width: 1122,
+        height: 1402,
+        alt: "SOLO MB 200 battery",
       },
     ],
   },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "SOLO® Batteries & Battery Plates Manufacturer | Crown Accumulator",
     description:
       "40+ years of lead-acid battery manufacturing excellence, supplying leading OEMs and international markets.",
-    images: ["/images/crown_factory_facility.png"],
+    images: ["/images/products/solo-mb-200.webp"],
   },
 };
 

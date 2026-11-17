@@ -15,11 +15,8 @@ const links = [
 ];
 const productLinks = [
   { href: "/products", label: "All products" },
-  { href: "/products?category=motorcycle", label: "Motorcycle batteries" },
-  { href: "/products?category=automotive", label: "Automotive batteries" },
-  { href: "/products?category=tractor", label: "Tractor & heavy duty" },
-  { href: "/products?category=solar", label: "Solar & deep cycle" },
-  { href: "/products?category=ups", label: "UPS & stationary" },
+  { href: "/products?category=motorcycle", label: "SOLO Super 4" },
+  { href: "/products?category=batteries", label: "SOLO MB 200 & ZB 230" },
   { href: "/battery-plates", label: "Battery plates" },
 ];
 

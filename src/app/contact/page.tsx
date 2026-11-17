@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/crown_factory_facility.png",
-        width: 1200,
-        height: 630,
+        url: "/images/products/solo-mb-200.webp",
+        width: 1122,
+        height: 1402,
         alt: "Crown Accumulator Factory & Headquarters",
       },
     ],
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Contact Crown Accumulator | Sales & OEM Manufacturing",
     description:
       "Reach out for SOLO battery wholesale, plate orders, or contract manufacturing inquiries.",
-    images: ["/images/crown_factory_facility.png"],
+    images: ["/images/products/solo-mb-200.webp"],
   },
 };
 
@@ -56,7 +56,7 @@ const contactSchema = {
       mainEntity: {
         "@type": "LocalBusiness",
         name: "Crown Accumulator",
-        image: "https://www.crownaccumulator.com/images/crown_factory_facility.png",
+        image: "https://www.crownaccumulator.com/images/products/solo-mb-200.webp",
         telephone: "+92-42-3755-8800",
         email: company.contact.email,
         address: {

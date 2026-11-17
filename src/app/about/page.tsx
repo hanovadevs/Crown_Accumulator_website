@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowRight } from "lucide-react";
 import { ClientsSection } from "@/components/company/ClientsSection";
 import { company, yearsInBusiness } from "@/data/company";
-import { cinematicImages } from "@/data/cinematic-images";
+import { productImages } from "@/data/product-images";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
@@ -36,10 +36,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/crown_factory_facility.png",
-        width: 1200,
-        height: 630,
-        alt: "Crown Accumulator Factory History and Plant",
+        url: "/images/products/solo-mb-200.webp",
+        width: 1122,
+        height: 1402,
+        alt: "SOLO MB 200 battery manufactured by Crown Accumulator",
       },
     ],
   },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "About Crown Accumulator | 40+ Years of Stored Energy Expertise",
     description:
       "Vertical integration, in-house metallurgy lab, and trusted supplier to major automotive OEMs.",
-    images: ["/images/crown_factory_facility.png"],
+    images: ["/images/products/solo-mb-200.webp"],
   },
 };
 
@@ -141,10 +141,10 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-crown-navy py-20 sm:py-28 text-white">
         <div className="absolute inset-0 opacity-20">
           <Image
-            src={cinematicImages.factory}
-            alt="Crown Accumulator manufacturing"
+            src={productImages.mb200}
+            alt="SOLO MB 200 battery manufactured by Crown Accumulator"
             fill
-            className="object-cover"
+            className="object-contain product-photograph"
             priority
           />
         </div>
@@ -197,10 +197,10 @@ export default function AboutPage() {
             <ScrollReveal direction="right">
               <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-border">
                 <Image
-                  src={cinematicImages.factory}
-                  alt="Crown Accumulator manufacturing facility"
+                  src={productImages.mb200}
+                  alt="SOLO MB 200 battery manufactured by Crown Accumulator"
                   fill
-                  className="object-cover"
+                  className="object-contain product-photograph"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>

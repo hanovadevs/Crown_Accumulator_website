@@ -16,13 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = getProductBySlug(slug);
   if (!product) return { title: "Product Not Found" };
 
-  const specsSummary = product.specs
-    .slice(0, 4)
-    .map((s) => `${s.label}: ${s.value}`)
-    .join(" · ");
-
-  const title = `${product.brand} ${product.model} - ${product.name} | Specs & Dimensions`;
-  const description = `${product.tagline} ${product.description.slice(0, 120)}... Key specs: ${specsSummary}.`;
+  const title = product.name + " | Product Details";
+  const description = product.description;
 
   const imageUrl = product.heroImage.startsWith("http")
     ? product.heroImage
@@ -85,31 +80,19 @@ export default async function ProductDetailPage({ params }: Props) {
       {
         "@type": "Product",
         "@id": `https://www.crownaccumulator.com/products/${product.slug}#product`,
-        name: `${product.brand} ${product.model} - ${product.name}`,
+        name: product.name,
         image: [imageUrl],
         description: `${product.tagline} ${product.description}`,
         brand: {
           "@type": "Brand",
           name: product.brand,
         },
-        model: product.model,
+        model: product.category === "plates" ? undefined : product.model,
         category: product.category,
         manufacturer: {
           "@type": "Organization",
           name: "Crown Accumulator",
           url: "https://www.crownaccumulator.com",
-        },
-        offers: {
-          "@type": "Offer",
-          url: `https://www.crownaccumulator.com/products/${product.slug}`,
-          priceCurrency: "PKR",
-          price: "0",
-          availability: "https://schema.org/InStock",
-          itemCondition: "https://schema.org/NewCondition",
-          seller: {
-            "@type": "Organization",
-            name: "Crown Accumulator",
-          },
         },
         additionalProperty: product.specs.map((spec) => ({
           "@type": "PropertyValue",

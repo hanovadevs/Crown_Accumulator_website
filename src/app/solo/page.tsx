@@ -1,245 +1,85 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProductCard } from "@/components/products/ProductCard";
 import { products } from "@/data/products";
-import { cinematicImages } from "@/data/cinematic-images";
-import { ArrowRight } from "lucide-react";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { productImages } from "@/data/product-images";
 
 export const metadata: Metadata = {
-  title: "SOLO® Batteries & Parts | High-Performance Motorcycle, Car & Solar Batteries",
-  description:
-    "SOLO® is Crown Accumulator's flagship brand engineered for extreme weather, high CCA cold-cranking performance, vibration resistance, and long-life deep-cycle backup.",
-  keywords: [
-    "SOLO batteries",
-    "SOLO motorcycle battery",
-    "SOLO automotive battery",
-    "SOLO 12N7-4B",
-    "SOLO 12N9-4B",
-    "SOLO DIN55",
-    "SOLO solar tubular battery",
-    "Crown Accumulator SOLO brand",
-    "high CCA motorcycle battery",
-    "vibration resistant battery",
-  ],
-  alternates: {
-    canonical: "https://www.crownaccumulator.com/solo",
-  },
+  title: "SOLO Batteries | Super 4, MB 200 & ZB 230",
+  description: "Explore SOLO Super 4, MB 200, and ZB 230 batteries from Crown Accumulator. View product labels and details, then discuss your supply requirements.",
+  alternates: { canonical: "https://www.crownaccumulator.com/solo" },
   openGraph: {
-    title: "SOLO® Batteries & Parts | Crown Accumulator Flagship Brand",
-    description:
-      "Built for riders, drivers, and solar systems. High-density paste, automated casting, and rigorous formation testing.",
-    url: "https://www.crownaccumulator.com/solo",
-    siteName: "Crown Accumulator",
-    type: "website",
-    images: [
-      {
-        url: "/images/solo_motorcycle_battery.png",
-        width: 1200,
-        height: 630,
-        alt: "SOLO Motorcycle & Automotive Batteries",
-      },
-    ],
+    title: "SOLO Batteries | Crown Accumulator",
+    images: [{
+      url: productImages.mb200,
+      width: 1122,
+      height: 1402,
+      alt: "SOLO MB 200 battery with red lid",
+    }],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "SOLO® Batteries & Parts | High-Performance Power",
-    description:
-      "Discover the SOLO® product family engineered with heavy-duty cast grids and maximum cranking power.",
-    images: ["/images/solo_motorcycle_battery.png"],
-  },
+  twitter: { card: "summary_large_image", images: [productImages.mb200] },
 };
 
-const soloBrandSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Brand",
-      "@id": "https://www.crownaccumulator.com/solo#brand",
-      name: "SOLO",
-      alternateName: ["SOLO Batteries", "SOLO Batteries & Parts"],
-      url: "https://www.crownaccumulator.com/solo",
-      logo: "https://www.crownaccumulator.com/logos/solo-batteries.png",
-      slogan: "Maximum Cranking, Extreme Endurance",
-      description:
-        "Flagship battery brand by Crown Accumulator providing motorcycle, automotive, solar, and industrial power solutions.",
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.crownaccumulator.com/solo#breadcrumbs",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://www.crownaccumulator.com",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "SOLO Brand",
-          item: "https://www.crownaccumulator.com/solo",
-        },
-      ],
-    },
-  ],
-};
+const soloProducts = products.filter((product) => product.brand === "SOLO");
 
-const soloProducts = products.filter((p) => p.brand === "SOLO");
-
-export default function SoloBrandPage() {
+export default function SoloPage() {
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(soloBrandSchema) }}
-      />
-      <div className="bg-surface">
-
-      <section className="relative overflow-hidden bg-crown-navy py-20 text-white sm:py-28">
-        <div className="absolute inset-0 opacity-20">
+    <div className="solo-page">
+      <section className="collection-hero section-shell">
+        <div>
+          <p className="eyebrow">A Crown Accumulator brand</p>
+          <h1>Meet the<br />SOLO range.</h1>
+          <p>
+            From the compact Super 4 to the MB 200 and ZB 230, explore
+            the battery models carrying the SOLO name.
+          </p>
+          <Link href="#solo-range" className="button button-red">
+            Explore the batteries <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+        <div className="collection-hero-image">
           <Image
-            src={cinematicImages.soloMotorcycle}
-            alt="SOLO Batteries in action"
+            src={productImages.mb200}
+            alt="SOLO MB 200 12V 130 Ah battery"
             fill
-            className="object-cover"
-            priority
+            preload
+            className="product-photograph"
+            sizes="(max-width: 760px) 100vw, 50vw"
           />
         </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-7">
-              <ScrollReveal direction="up">
-                <Image
-                  src="/logos/solo-batteries.png"
-                  alt="SOLO Batteries & Parts"
-                  width={280}
-                  height={100}
-                  className="h-20 w-auto sm:h-24"
-                />
-                <h1 className="font-display mt-6 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  Power Built For Extreme Performance
-                </h1>
-                <p className="mt-6 text-base leading-relaxed text-slate-300 sm:text-lg">
-                  SOLO® is Crown Accumulator&apos;s flagship brand — engineered with high-purity cast grids, dense active materials, and vibration-resistant casings to deliver dependable starting power.
-                </p>
-
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <Link
-                    href="#solo-range"
-                    className="font-display inline-flex items-center gap-2 rounded-sm bg-solo-red px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-solo-red-dark"
-                  >
-                    View SOLO Product Range
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="font-display inline-flex items-center gap-2 rounded-sm border border-slate-700 bg-slate-800/80 px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-slate-800"
-                  >
-                    Become a Dealer
-                  </Link>
-                </div>
-              </ScrollReveal>
-            </div>
-
-            <div className="lg:col-span-5">
-              <ScrollReveal direction="left">
-                <div className="relative mx-auto max-w-md">
-
-                  <div className="relative overflow-hidden rounded-sm border border-slate-800 bg-slate-900 p-3">
-                    <div className="relative aspect-square overflow-hidden rounded-sm">
-                      <Image
-                        src={cinematicImages.soloProduct}
-                        alt="SOLO 12V Battery"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </ScrollReveal>
+      </section>
+      <section id="solo-range" className="collection-catalog">
+        <div className="section-shell">
+          <div className="section-topline">
+            <div>
+              <p className="eyebrow">SOLO batteries</p>
+              <h2>Choose your model.</h2>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="border-y border-border bg-solo-red py-6 text-white">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6 px-4 sm:px-6">
-          {[
-            "Motorcycle",
-            "Automotive",
-            "Tractor & HD",
-            "Solar Deep-Cycle",
-            "UPS & Backup",
-          ].map((cat) => (
-            <span key={cat} className="font-display text-sm font-bold uppercase tracking-widest flex items-center gap-2">
-
-              {cat}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      <section id="solo-range" className="py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="SOLO Range"
-            title="Complete SOLO® Battery Catalog"
-            description="Backed by Crown Accumulator manufacturing standards and our nationwide warranty support."
-          />
-
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="catalog-product-grid">
             {soloProducts.map((product) => (
               <ProductCard key={product.slug} product={product} />
             ))}
           </div>
         </div>
       </section>
-
-      <section className="bg-surface-subtle py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <ScrollReveal direction="right">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-border">
-                <Image
-                  src={cinematicImages.soloMotorcycle}
-                  alt="SOLO Motorcycle Battery in use"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="left">
-              <SectionHeading
-                eyebrow="The SOLO Advantage"
-                title="Engineering Quality Built Into Every Battery"
-              />
-
-              <div className="mt-8 space-y-4">
-                {[
-                  "Cast Grids In-House — Formulated with tin-calcium alloys for zero maintenance",
-                  "Vibration Resistant — Polypropylene case structure protects internal plates",
-                  "Factory Charged — 100% ready to install right out of the box",
-                  "18-Month Warranty — Comprehensive warranty coverage on automotive range",
-                  "Nationwide Support — Network of 200+ authorized dealers and service points",
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-3 text-sm text-text-secondary">
-
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </ScrollReveal>
-          </div>
+      <section className="section-shell product-engineering">
+        <div>
+          <p className="eyebrow">Before you order</p>
+          <h2>A clear specification.<br />A better fit.</h2>
+        </div>
+        <div>
+          <p className="collection-guidance">
+            Share the model you need, your installation details, and the order
+            quantity. Our team can confirm dimensions, connections, charging
+            requirements, and availability before you place an order.
+          </p>
+          <Link href="/contact" className="text-link">
+            Discuss a SOLO order <span aria-hidden="true">↗</span>
+          </Link>
         </div>
       </section>
     </div>
-    </>
   );
 }

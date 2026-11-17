@@ -1,273 +1,92 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ProductCard } from "@/components/products/ProductCard";
-import { getProductsByCategory } from "@/data/products";
-import { ArrowRight } from "lucide-react";
-import { cinematicImages } from "@/data/cinematic-images";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { productImages } from "@/data/product-images";
 
 export const metadata: Metadata = {
-  title: "OEM Private-Label Battery Manufacturing | Crown Accumulator",
-  description:
-    "Turnkey private-label battery contract manufacturing by Crown Accumulator. Custom branding, ISO 9001:2015 quality control, automated assembly, and global export compliance.",
-  keywords: [
-    "OEM battery manufacturer",
-    "private label battery manufacturing",
-    "contract battery production",
-    "custom battery branding",
-    "battery exporter Pakistan",
-    "OEM motorcycle batteries",
-    "automotive battery OEM line",
-    "Crown Accumulator manufacturing",
-  ],
-  alternates: {
-    canonical: "https://www.crownaccumulator.com/manufacturing",
-  },
+  title: "Battery Manufacturing & OEM Inquiries | Crown Accumulator",
+  description: "Discuss battery manufacturing, plate supply, and private-label requirements directly with Crown Accumulator.",
+  alternates: { canonical: "https://www.crownaccumulator.com/manufacturing" },
   openGraph: {
-    title: "OEM Private-Label Battery Manufacturing | Crown Accumulator",
-    description:
-      "Launch your battery brand with Crown Accumulator's 40+ years of manufacturing infrastructure, automated casting, and international export documentation.",
-    url: "https://www.crownaccumulator.com/manufacturing",
-    siteName: "Crown Accumulator",
-    type: "website",
-    images: [
-      {
-        url: "/images/crown_factory_facility.png",
-        width: 1200,
-        height: 630,
-        alt: "Crown Accumulator OEM Manufacturing Facility",
-      },
-    ],
+    title: "Manufacturing | Crown Accumulator",
+    images: [{
+      url: productImages.zb230,
+      width: 1122,
+      height: 1402,
+      alt: "SOLO ZB 230 battery manufactured by Crown Accumulator",
+    }],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "OEM Private-Label Battery Manufacturing | Crown Accumulator",
-    description:
-      "Full private-label production: custom labels, container molding, formation testing, and export readiness.",
-    images: ["/images/crown_factory_facility.png"],
-  },
+  twitter: { card: "summary_large_image", images: [productImages.zb230] },
 };
 
-const oemSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Service",
-      "@id": "https://www.crownaccumulator.com/manufacturing#service",
-      name: "OEM Private-Label Battery Manufacturing",
-      provider: {
-        "@type": "Organization",
-        name: "Crown Accumulator",
-        url: "https://www.crownaccumulator.com",
-      },
-      serviceType: "Contract Manufacturing & Private-Label Production",
-      description:
-        "Full turnkey private-label manufacturing of lead-acid motorcycle, automotive, and solar batteries with customized casing, logos, packaging, and export certifications.",
-      areaServed: "Global",
-      hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: "OEM Battery Manufacturing Programs",
-        itemListElement: [
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Motorcycle Battery OEM Production",
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Automotive & Tractor Battery OEM Production",
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Solar Deep-Cycle Tubular OEM Production",
-            },
-          },
-        ],
-      },
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.crownaccumulator.com/manufacturing#breadcrumbs",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://www.crownaccumulator.com",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "OEM Manufacturing",
-          item: "https://www.crownaccumulator.com/manufacturing",
-        },
-      ],
-    },
-  ],
-};
-
-const oemProducts = getProductsByCategory("oem");
-
-const benefits = [
+const discussions = [
   {
-
-    title: "Full Brand Customization",
-    description:
-      "Custom labels, carton artwork, terminal caps, and warranty cards bearing your company logo and design specs.",
+    title: "Finished batteries",
+    description: "Start with a SOLO model and discuss the dimensions, connections, activation requirements, and quantity your business needs.",
+    href: "/solo",
+    link: "Explore SOLO batteries",
   },
   {
-
-    title: "SOLO-Grade Quality",
-    description:
-      "OEM private-label batteries are produced on the same automated lines, using identical cast alloys and formation testing.",
+    title: "Battery plates",
+    description: "Compare the supplied profiles, then confirm the body dimensions, lug arrangement, and plate specification for your assembly.",
+    href: "/battery-plates",
+    link: "Explore battery plates",
   },
   {
-
-    title: "Export Ready Documentation",
-    description:
-      "CE certificates, MSDS sheets, and export packaging prepared for smooth international shipments.",
-  },
-  {
-
-    title: "Dedicated Account Support",
-    description:
-      "Assigned project manager, technical documentation, and production scheduling assistance.",
+    title: "OEM & private label",
+    description: "Share your product brief, branding requirements, order quantity, and delivery market to discuss a suitable manufacturing arrangement.",
+    href: "/contact",
+    link: "Discuss an OEM requirement",
   },
 ];
 
 export default function ManufacturingPage() {
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(oemSchema) }}
-      />
-      <div className="bg-surface">
-
-      <section className="relative overflow-hidden bg-crown-navy py-20 text-white sm:py-28">
-        <div className="absolute inset-0 opacity-20">
+    <div className="manufacturing-page">
+      <section className="collection-hero section-shell">
+        <div>
+          <p className="eyebrow">Manufacturing & supply</p>
+          <h1>Work directly<br />with Crown.</h1>
+          <p>
+            Batteries and battery plates from Crown Accumulator.
+            Bring us your product, assembly, or private-label requirements.
+          </p>
+          <Link href="/contact" className="button button-red">
+            Discuss your requirements <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+        <div className="collection-hero-image">
           <Image
-            src={cinematicImages.factory}
-            alt="Crown Accumulator manufacturing facility"
+            src={productImages.zb230}
+            alt="SOLO ZB 230 12V 150 Ah battery with carrying handles"
             fill
-            className="object-cover"
-            priority
+            preload
+            className="product-photograph"
+            sizes="(max-width: 760px) 100vw, 50vw"
           />
         </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal direction="up">
-            <span className="font-display text-xs font-bold uppercase tracking-widest text-solo-red-light">
-              OEM &amp; Private Label Programs
-            </span>
-            <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold text-white sm:text-6xl">
-              Your Brand. Our Manufacturing Infrastructure.
-            </h1>
-            <p className="mt-6 max-w-2xl text-base text-slate-300 sm:text-lg">
-              Crown Accumulator produces batteries under private labels for distributors, automotive chains, and energy companies. Leverage our four decades of manufacturing expertise without building a factory.
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/contact?subject=OEM+Private+Label"
-                className="font-display inline-flex items-center gap-2 rounded-sm bg-crown-maroon px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-crown-maroon-dark"
-              >
-                Discuss Private Label Program
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+      </section>
+      <section className="collection-catalog">
+        <div className="section-shell">
+          <div className="section-topline">
+            <div>
+              <p className="eyebrow">Your manufacturing requirement</p>
+              <h2>Start with the product.</h2>
             </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      <section className="py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Why Partner With Us"
-            title="Manufacturing Partnership Benefits"
-            align="center"
-          />
-
-          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {benefits.map((b, idx) => {
-              return (
-                <ScrollReveal key={b.title} delay={idx * 0.1}>
-                  <div className="surface-card rounded-sm border border-border bg-white p-8">
-
-                    <h3 className="font-display text-lg font-bold text-text-primary">
-                      {b.title}
-                    </h3>
-                    <p className="mt-2 text-xs leading-relaxed text-text-muted">
-                      {b.description}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              );
-            })}
           </div>
-        </div>
-      </section>
-
-      <section className="bg-surface-subtle py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <ScrollReveal direction="right">
-              <SectionHeading
-                eyebrow="Scope &amp; Range"
-                title="What we can produce for your brand"
-              />
-              <div className="mt-6 space-y-3">
-                {[
-                  "Motorcycle batteries (70cc – 250cc standard sizes)",
-                  "Automotive DIN and JIS format batteries (45Ah – 100Ah)",
-                  "Tractor and agricultural heavy-duty flooded batteries",
-                  "Solar tubular deep-cycle batteries (100Ah – 200Ah)",
-                  "UPS AGM sealed maintenance-free batteries",
-                  "Custom terminal orientations & container colors",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3 pb-3 text-sm text-text-secondary">
-
-                    <span>{item}</span>
-                  </div>
-                ))}
+          <div className="plate-requirement-grid">
+            {discussions.map((discussion) => (
+              <div key={discussion.title} className="surface-card">
+                <h3>{discussion.title}</h3>
+                <p>{discussion.description}</p>
+                <Link href={discussion.href} className="text-link">
+                  {discussion.link} <span aria-hidden="true">↗</span>
+                </Link>
               </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="left">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-border">
-                <Image
-                  src={cinematicImages.factory}
-                  alt="Battery assembly line"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Program Structure" title="OEM Private Label Options" />
-          <div className="mt-12 max-w-2xl">
-            {oemProducts.map((p) => (
-              <ProductCard key={p.slug} product={p} />
             ))}
           </div>
         </div>
       </section>
     </div>
-    </>
   );
 }

@@ -6,6 +6,7 @@ export interface ResearchArticle {
   content: string;
   date: string;
   image: string;
+  imageAlt: string;
   category: string;
   references: string[];
 }
@@ -18,8 +19,8 @@ export const researchArticles: ResearchArticle[] = [
     excerpt:
       "A technical primer on how lead-acid batteries store and release energy at the molecular level.",
     date: "2026-02-01",
-    image:
-      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1200&q=80",
+    image: "/images/products/plate-graphite.webp",
+    imageAlt: "Graphite battery plate with upper-left lug",
     category: "Electrochemistry",
     references: [
       "Linden's Handbook of Batteries, 4th Edition",
@@ -48,8 +49,8 @@ Overall: Pb + PbO₂ + 2H₂SO₄ → 2PbSO₄ + 2H₂O
     excerpt:
       "When to specify tubular positive plates over flat pasted plates in deep-cycle applications.",
     date: "2025-11-18",
-    image:
-      "https://images.unsplash.com/photo-1466611653911-950815379e85?w=1200&q=80",
+    image: "/images/products/plate-tall-beige.webp",
+    imageAlt: "Tall beige battery plate with upper-right lug",
     category: "Solar Technology",
     references: [
       "IEA-PVPS Task 3: Stand-alone PV Systems",
@@ -73,8 +74,8 @@ Overall: Pb + PbO₂ + 2H₂SO₄ → 2PbSO₄ + 2H₂O
     excerpt:
       "How grid metallurgy affects water loss, cycle life, and manufacturing cost across battery categories.",
     date: "2025-09-22",
-    image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80",
+    image: "/images/products/plate-patterned-charcoal.webp",
+    imageAlt: "Patterned charcoal battery plate with upper-right lug",
     category: "Materials Science",
     references: [
       "Journal of Power Sources, Vol. 195 (2010)",
@@ -100,8 +101,8 @@ Overall: Pb + PbO₂ + 2H₂SO₄ → 2PbSO₄ + 2H₂O
     excerpt:
       "A breakdown of international cold cranking amp test methods and how to compare ratings across standards.",
     date: "2025-08-14",
-    image:
-      "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1200&q=80",
+    image: "/images/products/solo-super-4.webp",
+    imageAlt: "SOLO 12V Super 4 battery",
     category: "Testing & Standards",
     references: [
       "SAE J537: Storage Batteries",

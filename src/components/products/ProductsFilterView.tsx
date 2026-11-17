@@ -11,7 +11,7 @@ export function ProductsFilterView() {
   const params = useSearchParams();
   const category = params.get("category");
   const brand = params.get("brand");
-  return <ProductCatalog key={params.toString()} initialCategory={category && category in categoryLabels ? category as ProductCategory : "all"} initialBrand={["SOLO", "Crown Accumulator", "OEM"].includes(brand || "") ? brand! : "all"} />;
+  return <ProductCatalog key={params.toString()} initialCategory={category && category in categoryLabels ? category as ProductCategory : "all"} initialBrand={["SOLO", "Crown Accumulator"].includes(brand || "") ? brand! : "all"} />;
 }
 
 function ProductCatalog({ initialCategory, initialBrand }: { initialCategory: ProductCategory | "all"; initialBrand: string }) {
@@ -22,7 +22,7 @@ function ProductCatalog({ initialCategory, initialBrand }: { initialCategory: Pr
   return (
     <div className="catalog-page">
       <section className="page-intro">
-        <div className="section-shell"><p className="eyebrow">Crown Accumulator products</p><h1>Find your power.</h1><p>Explore SOLO batteries, battery plates, and private-label manufacturing options.</p></div>
+        <div className="section-shell"><p className="eyebrow">Crown Accumulator products</p><h1>Find your power.</h1><p>Explore the SOLO battery models and battery plate profiles available for supply inquiries.</p></div>
       </section>
       <section className="catalog-content section-shell">
         <div className="catalog-toolbar">
@@ -30,7 +30,7 @@ function ProductCatalog({ initialCategory, initialBrand }: { initialCategory: Pr
             <button type="button" onClick={() => setCategory("all")} aria-pressed={category === "all"}>All products</button>
             {categories.map(([key, label]) => <button type="button" key={key} onClick={() => setCategory(key)} aria-pressed={category === key}>{label}</button>)}
           </div>
-          <div className="brand-filter"><label htmlFor="brand-filter">Brand</label><select id="brand-filter" value={brand} onChange={(event) => setBrand(event.target.value)}><option value="all">All brands</option><option value="SOLO">SOLO</option><option value="Crown Accumulator">Crown Accumulator</option><option value="OEM">OEM</option></select></div>
+          <div className="brand-filter"><label htmlFor="brand-filter">Brand</label><select id="brand-filter" value={brand} onChange={(event) => setBrand(event.target.value)}><option value="all">All brands</option><option value="SOLO">SOLO</option><option value="Crown Accumulator">Crown Accumulator</option></select></div>
         </div>
         <p className="catalog-result-count" aria-live="polite">{filtered.length} {filtered.length === 1 ? "product" : "products"}</p>
         {filtered.length ? <div className="catalog-product-grid">{filtered.map((product) => <ProductCard key={product.slug} product={product} />)}</div> : <div className="empty-catalog"><h2>No matching products.</h2><p>Try another application or brand.</p><button type="button" className="text-link" onClick={() => { setCategory("all"); setBrand("all"); }}>Reset filters</button></div>}

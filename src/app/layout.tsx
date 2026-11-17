@@ -80,10 +80,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/crown_factory_facility.png",
-        width: 1200,
-        height: 630,
-        alt: "Crown Accumulator Manufacturing Facility & Plant",
+        url: "/images/products/solo-mb-200.webp",
+        width: 1122,
+        height: 1402,
+        alt: "SOLO MB 200 battery manufactured by Crown Accumulator",
       },
     ],
   },
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     title: "Crown Accumulator | SOLO® Batteries & Battery Plates",
     description:
       "ISO 9001:2015 certified manufacturer of SOLO® batteries, high-purity plates, and OEM manufacturing solutions.",
-    images: ["/images/crown_factory_facility.png"],
+    images: ["/images/products/solo-mb-200.webp"],
   },
   robots: {
     index: true,
@@ -117,7 +117,7 @@ const organizationSchema = {
       alternateName: ["Crown Accumulator Co.", "SOLO Batteries"],
       url: "https://www.crownaccumulator.com",
       logo: "https://www.crownaccumulator.com/logos/crown-accumulator.png",
-      image: "https://www.crownaccumulator.com/images/crown_factory_facility.png",
+      image: "https://www.crownaccumulator.com/images/products/solo-mb-200.webp",
       description:
         "Crown Accumulator manufactures SOLO motorcycle, automotive, tractor, solar, and UPS batteries. High-purity lead battery plates and OEM contract production.",
       foundingDate: "1984",

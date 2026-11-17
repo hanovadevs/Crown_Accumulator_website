@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: post.image,
           width: 1200,
           height: 630,
-          alt: post.title,
+          alt: post.imageAlt,
         },
       ],
     },
@@ -144,9 +144,9 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="relative h-80 overflow-hidden sm:h-96 bg-crown-navy">
           <Image
             src={post.image}
-            alt={post.title}
+            alt={post.imageAlt}
             fill
-            className="object-cover opacity-60"
+            className="object-contain product-photograph opacity-60"
             priority
             sizes="100vw"
           />

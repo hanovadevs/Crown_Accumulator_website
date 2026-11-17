@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/solar_battery_storage.png",
-        width: 1200,
-        height: 630,
+        url: "/images/products/solo-mb-200.webp",
+        width: 1122,
+        height: 1402,
         alt: "Crown Accumulator Engineering Blog",
       },
     ],
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Battery Engineering Blog & Maintenance Guides",
     description:
       "Field guides and technical analysis on lead-acid batteries, solar storage, and plate manufacturing.",
-    images: ["/images/solar_battery_storage.png"],
+    images: ["/images/products/solo-mb-200.webp"],
   },
 };
 
@@ -136,9 +136,9 @@ export default function BlogPage() {
                   <div className="relative aspect-[16/10] lg:aspect-auto lg:col-span-7 overflow-hidden">
                     <Image
                       src={featuredPost.image}
-                      alt={featuredPost.title}
+                      alt={featuredPost.imageAlt}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-contain product-photograph transition-transform duration-500 group-hover:scale-105"
                       priority
                       sizes="(max-width: 1024px) 100vw, 60vw"
                     />
@@ -180,9 +180,9 @@ export default function BlogPage() {
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <Image
                         src={post.image}
-                        alt={post.title}
+                        alt={post.imageAlt}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-contain product-photograph transition-transform duration-500 group-hover:scale-105"
                         sizes="33vw"
                       />
                     </div>
