@@ -36,7 +36,7 @@ export const products: Product[] = [
     "category": "motorcycle",
     "brand": "SOLO",
     "tagline": "Compact 12V power with cable connections.",
-    "description": "The SOLO 12V Super 4 is a compact battery in a translucent case with a blue top and insulated cable leads. Its front label shows an 18-plate marking and upper and lower electrolyte-level guides. For workshops and trade buyers, these visible details make it straightforward to discuss the required connection style and replacement fit with Crown Accumulator.",
+    "description": "A compact 12V SOLO battery with insulated cable leads, electrolyte-level guides, and an 18-plate label marking.",
     "specs": [
       {
         "label": "Voltage",
@@ -78,7 +78,7 @@ export const products: Product[] = [
     "category": "batteries",
     "brand": "SOLO",
     "tagline": "130 Ah capacity in a clearly marked 12V format.",
-    "description": "The SOLO MB 200 brings the Crown Accumulator name to a 12V battery marked 130 Ah and 21 plates. A translucent ribbed case, red lid, twin carrying handles, and yellow service caps give the product a practical, recognisable form. The label carries a dry-charged marking. Share your installation and quantity requirements with our team to confirm the right supply arrangement.",
+    "description": "The SOLO MB 200 is labelled 12V, 130 Ah, and 21 plates. It has a red lid, twin carrying handles, and accessible service caps, with a dry-charged designation.",
     "specs": [
       {
         "label": "Voltage",
@@ -120,7 +120,7 @@ export const products: Product[] = [
     "category": "batteries",
     "brand": "SOLO",
     "tagline": "150 Ah capacity with the SOLO blue-top identity.",
-    "description": "The SOLO ZB 230 is labelled 12V, 150 Ah, and 23 plates, with a dry-charged marking on the front case. Its blue lid, twin handles, and yellow service caps distinguish it within the SOLO range. For buyers comparing the larger battery models, Crown Accumulator can confirm case dimensions, terminal arrangement, activation requirements, and suitability for the intended installation.",
+    "description": "The SOLO ZB 230 is labelled 12V, 150 Ah, and 23 plates. It features a blue lid, twin carrying handles, and accessible service caps, with a dry-charged designation.",
     "specs": [
       {
         "label": "Voltage",
@@ -162,7 +162,7 @@ export const products: Product[] = [
     "category": "plates",
     "brand": "Crown Accumulator",
     "tagline": "Broad rectangular outline with an upper right lug.",
-    "description": "A broad rectangular battery plate with a matte brown face, exposed upper-right lug, and two support feet. Its outline provides a clear starting point for matching a replacement plate or discussing an assembly requirement. Send a drawing or sample so our team can confirm the dimensions, lug geometry, and plate specification for your order.",
+    "description": "A broad rectangular battery plate with a matte brown face, exposed upper-right lug, and two support feet.",
     "heroImage": "/images/products/plate-chocolate-brown.webp",
     "gallery": [
       "/images/products/plate-chocolate-brown.webp"
@@ -197,7 +197,7 @@ export const products: Product[] = [
     "category": "plates",
     "brand": "Crown Accumulator",
     "tagline": "Contrasting patterned face with an upper right lug.",
-    "description": "This broad plate has a contrasting patterned face and an exposed upper-right lug. The visible grid pattern and lower support feet help identify the profile when comparing samples. Crown Accumulator can discuss a matching plate requirement once the required width, height, thickness, and assembly details are supplied.",
+    "description": "This broad plate has a contrasting patterned face and an exposed upper-right lug.",
     "heroImage": "/images/products/plate-patterned-charcoal.webp",
     "gallery": [
       "/images/products/plate-patterned-charcoal.webp"
@@ -232,7 +232,7 @@ export const products: Product[] = [
     "category": "plates",
     "brand": "Crown Accumulator",
     "tagline": "Wide rectangular face with an upper right lug.",
-    "description": "A wide brown plate with a squared body and an upper-right lug. The generous face and low support feet distinguish it from the taller profiles in the range. Use the image as a reference when requesting a matching size, then confirm the working dimensions and material specification with our team.",
+    "description": "A wide brown plate with a squared body and an upper-right lug.",
     "heroImage": "/images/products/plate-wide-brown.webp",
     "gallery": [
       "/images/products/plate-wide-brown.webp"
@@ -267,7 +267,7 @@ export const products: Product[] = [
     "category": "plates",
     "brand": "Crown Accumulator",
     "tagline": "Visible AS Heavy Duty label with an upper left lug.",
-    "description": "A burgundy-toned plate with an upper-left lug and a visible AS Heavy Duty Battery Plate label. The left-hand lug and broad face make this profile easy to distinguish during sample matching. Quote the visible marking and share the required dimensions so our team can identify the appropriate plate for your assembly.",
+    "description": "A burgundy-toned plate with an upper-left lug and a visible AS Heavy Duty Battery Plate label.",
     "heroImage": "/images/products/plate-burgundy.webp",
     "gallery": [
       "/images/products/plate-burgundy.webp"
@@ -302,7 +302,7 @@ export const products: Product[] = [
     "category": "plates",
     "brand": "Crown Accumulator",
     "tagline": "Mottled patterned face with an upper left lug.",
-    "description": "This plate combines a mottled, vertically patterned face with an upper-left lug. Its contrasting surface makes it a distinctive reference for buyers comparing plate profiles. Confirm the intended plate type, thickness, and lug dimensions with Crown Accumulator before arranging a sample or bulk order.",
+    "description": "This plate combines a mottled, vertically patterned face with an upper-left lug.",
     "heroImage": "/images/products/plate-mottled.webp",
     "gallery": [
       "/images/products/plate-mottled.webp"
@@ -337,7 +337,7 @@ export const products: Product[] = [
     "category": "plates",
     "brand": "Crown Accumulator",
     "tagline": "Upright rectangular body with an upper left lug.",
-    "description": "An upright plate with a warm-gray face, exposed perimeter, and upper-left lug. Lower support feet define the base of the profile. For assemblers matching a case or plate group, provide the required overall height, body width, and lug position so our team can assess the correct specification.",
+    "description": "An upright plate with a warm-gray face, exposed perimeter, and upper-left lug.",
     "heroImage": "/images/products/plate-warm-gray.webp",
     "gallery": [
       "/images/products/plate-warm-gray.webp"
@@ -372,7 +372,7 @@ export const products: Product[] = [
     "category": "plates",
     "brand": "Crown Accumulator",
     "tagline": "Wide, textured plate with an upper-left lug.",
-    "description": "A wide taupe-toned plate with an upper-left lug and a subtly textured face. The broad body offers a useful visual reference when discussing plate-group dimensions and case fit. Share a sample or drawing to confirm the exact width, height, thickness, and supply requirements.",
+    "description": "A wide taupe-toned plate with an upper-left lug and a subtly textured face.",
     "heroImage": "/images/products/plate-wide-taupe.webp",
     "gallery": [
       "/images/products/plate-wide-taupe.webp"
@@ -407,7 +407,7 @@ export const products: Product[] = [
     "category": "plates",
     "brand": "Crown Accumulator",
     "tagline": "Graphite-gray textured face with an upper left lug.",
-    "description": "A graphite-gray plate with a textured face and upper-left lug. Its dark surface and broad rectangular outline distinguish it within the supplied plate selection. Crown Accumulator can review your assembly drawing or reference sample to confirm the required geometry and plate specification.",
+    "description": "A graphite-gray plate with a textured face and upper-left lug.",
     "heroImage": "/images/products/plate-graphite.webp",
     "gallery": [
       "/images/products/plate-graphite.webp"
@@ -442,7 +442,7 @@ export const products: Product[] = [
     "category": "plates",
     "brand": "Crown Accumulator",
     "tagline": "Upright textured face with an upper right lug.",
-    "description": "An upright charcoal plate with a textured face, upper-right lug, and two lower support feet. This narrower profile is clearly identifiable alongside the wider plates in the range. Use it as a starting reference for an inquiry and confirm all working dimensions and assembly requirements with our team.",
+    "description": "An upright charcoal plate with a textured face, upper-right lug, and two lower support feet.",
     "heroImage": "/images/products/plate-charcoal.webp",
     "gallery": [
       "/images/products/plate-charcoal.webp"
@@ -477,7 +477,7 @@ export const products: Product[] = [
     "category": "plates",
     "brand": "Crown Accumulator",
     "tagline": "Tall rectangular outline with an upper right lug.",
-    "description": "A tall, narrow plate with an ochre-coloured face and upper-right lug. Its elongated outline distinguishes it from the broad plate profiles. For a matching supply inquiry, provide the required body height, width, lug size, and plate thickness so Crown Accumulator can confirm the appropriate specification.",
+    "description": "A tall, narrow plate with an ochre-coloured face and upper-right lug.",
     "heroImage": "/images/products/plate-ochre.webp",
     "gallery": [
       "/images/products/plate-ochre.webp"
@@ -512,7 +512,7 @@ export const products: Product[] = [
     "category": "plates",
     "brand": "Crown Accumulator",
     "tagline": "Sandy-beige face with an upper right lug.",
-    "description": "This sandy-beige plate has an upright rectangular body, an exposed upper-right lug, and two lower support feet. Its face and outline give buyers a clear reference for sample matching. Discuss the intended battery assembly and required measurements with our team to establish the correct plate specification.",
+    "description": "This sandy-beige plate has an upright rectangular body, an exposed upper-right lug, and two lower support feet.",
     "heroImage": "/images/products/plate-sandy-beige.webp",
     "gallery": [
       "/images/products/plate-sandy-beige.webp"
@@ -547,7 +547,7 @@ export const products: Product[] = [
     "category": "plates",
     "brand": "Crown Accumulator",
     "tagline": "Olive-gray textured face with an upper right lug.",
-    "description": "An olive-gray plate with a lightly textured face, upper-right lug, and lower support feet. The upright outline provides a distinct reference for plate-supply discussions. Send a dimensioned drawing or reference sample to confirm the geometry, material requirements, and quantity before ordering.",
+    "description": "An olive-gray plate with a lightly textured face, upper-right lug, and lower support feet.",
     "heroImage": "/images/products/plate-olive-gray.webp",
     "gallery": [
       "/images/products/plate-olive-gray.webp"
@@ -582,7 +582,7 @@ export const products: Product[] = [
     "category": "plates",
     "brand": "Crown Accumulator",
     "tagline": "Tall narrow body with an upper right lug.",
-    "description": "A tall beige plate with a narrow rectangular body and an upper-right lug. The extended profile is easy to identify in a sample-based inquiry. Crown Accumulator can review the required body dimensions, lug arrangement, and plate specification against your assembly requirements.",
+    "description": "A tall beige plate with a narrow rectangular body and an upper-right lug.",
     "heroImage": "/images/products/plate-tall-beige.webp",
     "gallery": [
       "/images/products/plate-tall-beige.webp"
