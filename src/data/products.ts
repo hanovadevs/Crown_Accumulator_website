@@ -10,7 +10,7 @@ export interface Product {
   name: string;
   model: string;
   category: ProductCategory;
-  brand: "SOLO" | "Crown Accumulator";
+  brand: "SOLO" | "Crown Accumulator" | "AS Battery Plate" | "Shalimar Battery Plate";
   tagline: string;
   description: string;
   heroImage: string;
@@ -160,7 +160,7 @@ export const products: Product[] = [
     "name": "Chocolate-Brown Battery Plate",
     "model": "Broad right-lug profile",
     "category": "plates",
-    "brand": "Crown Accumulator",
+    "brand": "Shalimar Battery Plate",
     "tagline": "Broad rectangular outline with an upper right lug.",
     "description": "A broad rectangular battery plate with a matte brown face, exposed upper-right lug, and two support feet.",
     "heroImage": "/images/products/plate-chocolate-brown.webp",
@@ -195,7 +195,7 @@ export const products: Product[] = [
     "name": "Patterned Charcoal Battery Plate",
     "model": "Patterned right-lug profile",
     "category": "plates",
-    "brand": "Crown Accumulator",
+    "brand": "Shalimar Battery Plate",
     "tagline": "Contrasting patterned face with an upper right lug.",
     "description": "This broad plate has a contrasting patterned face and an exposed upper-right lug.",
     "heroImage": "/images/products/plate-patterned-charcoal.webp",
@@ -265,7 +265,7 @@ export const products: Product[] = [
     "name": "Burgundy Battery Plate",
     "model": "AS-marked left-lug profile",
     "category": "plates",
-    "brand": "Crown Accumulator",
+    "brand": "AS Battery Plate",
     "tagline": "Visible AS Heavy Duty label with an upper left lug.",
     "description": "A burgundy-toned plate with an upper-left lug and a visible AS Heavy Duty Battery Plate label.",
     "heroImage": "/images/products/plate-burgundy.webp",
@@ -300,7 +300,7 @@ export const products: Product[] = [
     "name": "Mottled Battery Plate",
     "model": "Patterned left-lug profile",
     "category": "plates",
-    "brand": "Crown Accumulator",
+    "brand": "Shalimar Battery Plate",
     "tagline": "Mottled patterned face with an upper left lug.",
     "description": "This plate combines a mottled, vertically patterned face with an upper-left lug.",
     "heroImage": "/images/products/plate-mottled.webp",

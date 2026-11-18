@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { CinematicLanding } from "@/components/home/CinematicLanding";
 
 export const metadata: Metadata = {
-  title: "SOLO® Batteries & Battery Plates Manufacturer | Crown Accumulator",
+  title: "Battery, Battery Plate & Motorcycle Sprocket Manufacturing",
   description:
-    "Crown Accumulator is an ISO 9001:2015 certified manufacturer of SOLO® motorcycle, automotive, solar, and tractor batteries, high-purity battery plates, and motorcycle sprockets since 1984.",
+    "Crown Accumulator manufactures SOLO batteries, AS Battery Plate, Shalimar Battery Plate, and motorcycle sprockets for trade and industrial customers.",
   keywords: [
     "Crown Accumulator",
     "SOLO batteries",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     canonical: "https://www.crownaccumulator.com",
   },
   openGraph: {
-    title: "SOLO® Batteries & Battery Plates Manufacturer | Crown Accumulator",
+    title: "Battery, Battery Plate & Motorcycle Sprocket Manufacturing",
     description:
       "Precision-engineered SOLO® motorcycle, automotive, solar, and industrial batteries. High-purity lead plates and OEM private-label manufacturing.",
     url: "https://www.crownaccumulator.com",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SOLO® Batteries & Battery Plates Manufacturer | Crown Accumulator",
+    title: "Battery, Battery Plate & Motorcycle Sprocket Manufacturing",
     description:
       "40+ years of lead-acid battery manufacturing excellence, supplying leading OEMs and international markets.",
     images: ["/images/products/solo-mb-200.webp"],

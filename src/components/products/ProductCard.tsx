@@ -15,7 +15,7 @@ export function ProductCard({ product }: { product: Product }) {
         />
       </div>
       <div className="product-card-body">
-        <p className="product-model">{product.category === "plates" ? "Battery plates" : "SOLO batteries"}</p>
+        <p className="product-model">{product.brand === "Crown Accumulator" ? "Battery plates" : product.brand}</p>
         <h3>{product.name}</h3>
         <dl className="product-card-specs">
           {product.specs.slice(0, 2).map((spec) => (

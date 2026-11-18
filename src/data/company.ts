@@ -1,5 +1,6 @@
 export const company = {
   foundedYear: 1984,
+  brands: ["SOLO", "AS Battery Plate", "Shalimar Battery Plate"],
   areasOfBusiness: "Manufacturing & Development",
   mainProducts: ["Batteries", "Sprockets", "Battery Plates"],
   tagline: "Engineering Enterprise & General Order Suppliers",
@@ -16,6 +17,7 @@ export const company = {
   contact: {
     email: "crown.solo@gmail.com",
     salesEmail: "crown.solo@gmail.com",
+    whatsapp: "923009448462",
   },
 } as const;
 
