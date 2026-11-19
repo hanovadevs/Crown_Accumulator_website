@@ -76,9 +76,11 @@ body { background: var(--ivory); }
 .crown-hero .home-hero-actions .text-link { font-size: .93rem; }
 .crown-hero-media { position: absolute; inset: 0 0 0 33%; background: #443b35; overflow: hidden; z-index: -1; border-radius: 48% 0 0 0 / 75% 0 0 0; clip-path: shape(from 55% 0, line to 100% 0, line to 100% 100%, line to 0 100%, curve to 25% 48% with 13% 89% / 19% 68%, curve to 55% 0 with 35% 19% / 44% 0, close); }
 @supports (clip-path: shape(from 0 0, line to 100% 100%, close)) { .crown-hero-media { border-radius: 0; } }
-.crown-hero-workshop { object-fit: cover; object-position: 53% 43%; }
-.crown-hero-battery { position: absolute; bottom: 9%; right: 7%; width: min(49%, 510px); aspect-ratio: 1.57; display: block; }
-.crown-hero-battery img { object-fit: contain; filter: drop-shadow(8px 16px 15px #18100a80); }
+.crown-hero-backdrop { object-fit: cover; object-position: 40% 100%; transform: scale(-1.008, 1.008); filter: blur(1.5px); }
+.crown-hero-media figcaption { position: absolute; bottom: 3%; right: 3%; color: #303237; font-size: .7rem; }
+.crown-hero-battery { position: absolute; bottom: 14%; right: 5.5%; width: min(60.5%, 690px); aspect-ratio: 1035 / 551; display: block; }
+.crown-hero-battery::before { content: ""; position: absolute; inset: auto 2% -1% 2%; height: 8%; border-radius: 50%; background: #171513b8; filter: blur(7px); transform: translateY(25%); }
+.crown-hero-battery img { object-fit: contain; }
 .crown-hero-battery:focus-visible { outline-color: white; outline-offset: 7px; }
 .product-index { display: grid; grid-template-columns: 1.03fr 1fr; gap: 30px 70px; padding-block: var(--section-space); align-items: center; }
 .product-index-title { max-width: 540px; }
@@ -260,7 +262,7 @@ body { background: var(--ivory); }
   .crown-hero h1 { font-size: clamp(2.35rem, 8.25vw, 4.7rem); }
   .crown-hero .home-hero-description { max-width: 100%; }
   .crown-hero-media { order: 1; position: relative; inset: auto; z-index: 0; aspect-ratio: 1.42; border-radius: 29% 0 0 0 / 46% 0 0 0; clip-path: none; }
-  .crown-hero-battery { width: 52%; right: 7%; bottom: 13%; }
+  .crown-hero-battery { width: 76%; right: 5.5%; }
   .crown-hero .home-hero-actions { gap: 10px 20px; }
   .crown-hero .home-hero-actions .text-link { min-height: 44px; }
   .product-index, .heritage-feature, .engineering-feature, .dealer-feature, .product-applications, .product-feature, .spec-layout, .catalog-sprocket, .sprocket-layout, .product-order > .section-shell { grid-template-columns: 1fr; }

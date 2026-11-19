@@ -51,12 +51,13 @@ export function CinematicLanding() {
             </div>
           </div>
         </div>
-        <div className="crown-hero-media">
-          <Image src="/images/factory/workshop.webp" alt="Metal mould and clamping equipment in the Crown workshop" fill preload sizes="(max-width: 760px) 100vw, 67vw" className="crown-hero-workshop" />
+        <figure className="crown-hero-media">
+          <Image src="/images/hero/assembly-bench.webp" alt="" fill preload sizes="(max-width: 760px) 100vw, 67vw" className="crown-hero-backdrop" />
           <Link href="/products/solo-mb-200" className="crown-hero-battery" aria-label="View the featured SOLO MB 200 battery">
-            <Image src="/images/showroom/solo-mb-200.webp" alt="" fill sizes="(max-width: 760px) 50vw, 31vw" />
+            <Image src="/images/showroom/solo-mb-200.webp" alt="" fill loading="eager" sizes="(max-width: 760px) 76vw, (max-width: 1700px) 41vw, 690px" />
           </Link>
-        </div>
+          <figcaption>Illustrative backdrop</figcaption>
+        </figure>
       </section>
 
       <section className="section-shell product-index" id="product-range" aria-labelledby="product-index-title">
