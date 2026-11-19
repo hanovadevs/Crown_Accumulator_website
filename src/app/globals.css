@@ -142,9 +142,9 @@ a, button { touch-action: manipulation; }
 .surface-card p.text-xs { font-size: 13px; line-height: 1.8; }
 .surface-card:is(a) { transition: background .25s; }
 .surface-card:is(a):hover { background: #f0f0e8; }
-.site-main > :not(.home-page):not(.product-detail):not(.agency-article):not(.solo-page):not(.plates-page):not(.manufacturing-page) > section:first-of-type { padding-block: 80px; }
-.site-main > :not(.home-page):not(.product-detail):not(.agency-article):not(.solo-page):not(.plates-page):not(.manufacturing-page) > section:first-of-type h1 { font-weight: 500; letter-spacing: -.045em; line-height: 1.14; }
-.site-main > :not(.home-page):not(.product-detail):not(.agency-article):not(.solo-page):not(.plates-page):not(.manufacturing-page) > section:first-of-type > div > .absolute { pointer-events: none; }
+.site-main > :where(:not(.home-page,.product-detail,.agency-article,.solo-page,.plates-page,.manufacturing-page)) > section:first-of-type:where(:not(.showroom-intro,.editorial-intro)) { padding-block: 80px; }
+.site-main > :where(:not(.home-page,.product-detail,.agency-article,.solo-page,.plates-page,.manufacturing-page)) > section:first-of-type:where(:not(.showroom-intro,.editorial-intro)) h1 { font-weight: 500; letter-spacing: -.045em; line-height: 1.14; }
+.site-main > :where(:not(.home-page,.product-detail,.agency-article,.solo-page,.plates-page,.manufacturing-page)) > section:first-of-type:where(:not(.showroom-intro,.editorial-intro)) > div > .absolute { pointer-events: none; }
 .site-main .bg-slate-900 { background-color: var(--crown-navy); }
 .site-main .bg-slate-50 { background-color: #faf9f6; }
 .site-main input, .site-main select, .site-main textarea { border-radius: 2px; font-size: 14px; }
@@ -231,7 +231,7 @@ a, button { touch-action: manipulation; }
   .footer-columns { grid-template-columns: 1fr 1fr; gap: 36px 24px; padding-block: 36px; }
   .footer-brand { grid-column: 1 / -1; }
   .footer-columns > div:last-child { grid-column: auto; }
-  .site-main > :not(.home-page):not(.product-detail):not(.agency-article):not(.solo-page):not(.plates-page):not(.manufacturing-page) > section:first-of-type { padding-block: 52px; }
+  .site-main > :where(:not(.home-page,.product-detail,.agency-article,.solo-page,.plates-page,.manufacturing-page)) > section:first-of-type:where(:not(.showroom-intro,.editorial-intro)) { padding-block: 52px; }
   .timeline-item { grid-template-columns: 1fr; gap: 16px; padding: 24px; }
 }
 @media (max-width: 520px) {
@@ -702,3 +702,19 @@ a, button { touch-action: manipulation; }
   .buyer-process,.oem-brief-list { grid-template-columns: 1fr; }
   .brand-family strong { font-size: 20px; }
 }
+
+.battery-viewer { margin: 0; min-width: 0; }
+.battery-viewer-stage { position: relative; aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: #f3efe7; }
+.battery-viewer-canvas { position: absolute; inset: 0; opacity: 0; visibility: hidden; }
+.battery-viewer-canvas canvas { display: block; width: 100%; height: 100%; touch-action: pan-y; cursor: grab; }
+.battery-viewer-canvas canvas:active { cursor: grabbing; }
+.battery-viewer-stage[data-ready="true"] .battery-viewer-canvas { opacity: 1; visibility: visible; }
+.battery-viewer-stage[data-ready="true"] .battery-viewer-poster { visibility: hidden; }
+.battery-viewer-controls { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 18px; }
+.battery-viewer-controls button { border: 0; border-radius: 30px; padding: 11px 19px; background: #e9e4db; color: #27221f; font: inherit; font-size: 13px; cursor: pointer; }
+.battery-viewer-controls button:first-child { background: #28231f; color: #fffaf2; }
+.battery-viewer-controls button:disabled { opacity: .5; cursor: default; }
+.battery-viewer-controls button:hover:not(:disabled) { background: #be2429; color: white; }
+.battery-viewer button:focus-visible, .battery-viewer canvas:focus-visible { outline: 3px solid #b3262d; outline-offset: -3px; }
+.battery-viewer figcaption { padding-top: 12px; color: #706b64; font-size: 12px; line-height: 1.65; }
+.battery-viewer figcaption p { margin: 0; }

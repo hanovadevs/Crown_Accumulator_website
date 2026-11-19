@@ -1,28 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Product } from "@/data/products";
+import { productDisplayName, showroomImage } from "@/data/showroom";
 
 export function ProductCard({ product }: { product: Product }) {
+  const name = productDisplayName(product);
+  const battery = product.category !== "plates";
   return (
-    <Link href={"/products/" + product.slug} className="product-card" aria-label={"View " + product.name}>
-      <div className="product-card-image">
-        <Image
-          src={product.heroImage}
-          alt={product.name}
-          fill
-          className="product-photograph"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
+    <Link href={`/products/${product.slug}`} className="product-card" aria-label={`View ${name}`}>
+      <div className={`product-card-image ${battery ? "product-cutout" : "product-profile"}`}>
+        <Image src={showroomImage(product)} alt="" fill sizes="(max-width: 640px) 90vw, (max-width: 1024px) 46vw, 30vw" />
       </div>
       <div className="product-card-body">
-        <p className="product-model">{product.brand === "Crown Accumulator" ? "Battery plates" : product.brand}</p>
-        <h3>{product.name}</h3>
-        <dl className="product-card-specs">
-          {product.specs.slice(0, 2).map((spec) => (
-            <div key={spec.label}><dt>{spec.label}</dt><dd>{spec.value}</dd></div>
-          ))}
-        </dl>
-        <span className="product-card-link">Product details <span aria-hidden="true">↗</span></span>
+        <h3>{name}</h3>
+        {battery ? <p className="product-summary">{product.specs.slice(0, 2).map(({ value }) => value).join(" · ")}</p> : <p className="product-summary">{product.brand} · {product.model}</p>}
+        <span className="product-card-link">View product <span aria-hidden="true">↗</span></span>
       </div>
     </Link>
   );

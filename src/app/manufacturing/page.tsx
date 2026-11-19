@@ -48,23 +48,27 @@ export default function ManufacturingPage() {
           <p className="eyebrow">Manufacturing & supply</p>
           <h1>Work directly<br />with Crown.</h1>
           <p>
-            Batteries and battery plates from Crown Accumulator.
+            Batteries, battery plates and motorcycle sprockets from Crown Accumulator.
             Bring us your product, assembly, or private-label requirements.
           </p>
           <Link href="/contact" className="button button-red">
             Discuss your requirements <span aria-hidden="true">↗</span>
           </Link>
         </div>
-        <div className="collection-hero-image">
+        <div className="collection-hero-image manufacturing-photo">
           <Image
-            src={productImages.zb230}
-            alt="SOLO ZB 230 12V 150 Ah battery with carrying handles"
+            src="/images/factory/workshop.webp"
+            alt="Mould and clamping equipment in the Crown workshop"
             fill
             preload
             className="product-photograph"
             sizes="(max-width: 760px) 100vw, 50vw"
           />
         </div>
+      </section>
+      <section className="section-shell engineering-feature" aria-labelledby="workshop-title">
+        <figure className="manufacturing-inspection"><Image src="/images/factory/workshop-inspection.webp" alt="A component held beside Crown workshop tooling" fill sizes="(max-width: 760px) 90vw, 45vw" /></figure>
+        <div><p className="eyebrow">Inside the workshop</p><h2 id="workshop-title">From sample to specification.</h2><p>For a new requirement, send a drawing or sample with the dimensions that matter. Confirm the finish, inspection criteria, packaging and documentation with our team before approving your order.</p><Link href="/research" className="text-link">Read the technical library <span aria-hidden="true">↗</span></Link></div>
       </section>
       <section className="collection-catalog">
         <div className="section-shell">
@@ -87,6 +91,7 @@ export default function ManufacturingPage() {
           </div>
         </div>
       </section>
+      <section id="sprockets" className="sprocket-feature"><div className="section-shell sprocket-layout"><div><p className="eyebrow">Motorcycle sprockets</p><h2>Start with the fitment.</h2><p>Share the motorcycle make and model, tooth count, chain pitch and mounting pattern. If you have a sample or drawing, mention it in your enquiry so the team can review the requirement.</p></div><Link className="button button-light" href="/contact?topic=sprockets">Enquire about sprockets <span aria-hidden="true">↗</span></Link></div></section>
     </div>
   );
 }

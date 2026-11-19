@@ -1,0 +1,51 @@
+{
+  "blender": "5.2.1 LTS",
+  "saved_blend_reopened": true,
+  "unrelated_default_cube_retained_and_excluded": true,
+  "bytes": 1626860,
+  "triangles": 22278,
+  "nodes": 99,
+  "required_nodes": [
+    "BatteryRoot",
+    "Cap01",
+    "Cap02",
+    "Cap03",
+    "CaseBody",
+    "FrontPrint",
+    "HandleLeft",
+    "HandleRight",
+    "Lid",
+    "TerminalVisible"
+  ],
+  "materials": [
+    "ZB230 | Yellow cap plastic",
+    "ZB230 | Source front printing",
+    "ZB230 | Warm polypropylene",
+    "ZB230 | Cobalt molded plastic",
+    "ZB230 | Cast terminal"
+  ],
+  "embedded_images": [
+    {
+      "bufferView": 168,
+      "mimeType": "image/png",
+      "name": "front-print"
+    }
+  ],
+  "packed_blend_images": [
+    "front-print.png"
+  ],
+  "blender_bounds_xyz": {
+    "min": [
+      -0.5074999928474426,
+      -0.1809999942779541,
+      0.0019999993965029716
+    ],
+    "max": [
+      0.5074999928474426,
+      0.1809999942779541,
+      0.5239999890327454
+    ]
+  },
+  "gltf_axes": "Y up, front +Z; independent exterior targets have local Y lift",
+  "source_face_print": "Single front UV decal; QR-like and certification-like marks omitted"
+}

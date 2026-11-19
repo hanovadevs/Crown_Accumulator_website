@@ -110,15 +110,15 @@ export default function BlogPage() {
       />
       <div className="bg-surface pb-24">
 
-        <section className="bg-crown-navy py-16 text-white sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <span className="font-display text-xs font-bold uppercase tracking-widest text-solo-red-light">
+        <section className="page-intro editorial-intro">
+          <div className="section-shell">
+            <span className="font-display text-xs font-bold uppercase tracking-widest eyebrow">
               Engineering Blog &amp; Guides
             </span>
-            <h1 className="font-display mt-2 text-4xl font-bold text-white sm:text-5xl">
+            <h1 className="font-display mt-2 text-4xl font-bold text-text-primary sm:text-5xl">
               Practical Battery Knowledge
             </h1>
-            <p className="mt-4 max-w-2xl text-sm text-slate-300">
+            <p className="mt-4 max-w-2xl text-sm text-text-secondary">
               Insights on battery chemistry, solar sizing, plate quality control, and winter maintenance from our engineers.
             </p>
           </div>

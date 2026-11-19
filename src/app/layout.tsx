@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Main } from "@/components/layout/Main";
 import "./globals.css";
+import "./editorial.css";
 
 const manrope = localFont({
   src: [

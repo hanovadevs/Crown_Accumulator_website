@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactFormView } from "@/components/contact/ContactFormView";
 import { company } from "@/data/company";
+import { getProductBySlug } from "@/data/products";
 
 export const metadata: Metadata = {
   title: "Contact Crown Accumulator | Sales, OEM & Distribution Inquiries",
@@ -103,14 +104,17 @@ const contactSchema = {
   ],
 };
 
-export default function ContactPage() {
+export default async function ContactPage({ searchParams }: { searchParams: Promise<{ product?: string; topic?: string }> }) {
+  const { product, topic } = await searchParams;
+  const selected = typeof product === "string" ? getProductBySlug(product) : undefined;
+  const subject = topic === "sprockets" ? "Motorcycle sprocket inquiry" : selected?.category === "plates" ? "Battery plate order" : undefined;
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
-      <ContactFormView />
+      <ContactFormView key={selected?.slug ?? subject ?? "general"} productName={selected?.name} initialSubject={subject} />
     </>
   );
 }

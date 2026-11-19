@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { ProductsFilterView } from "@/components/products/ProductsFilterView";
 import { products } from "@/data/products";
 
@@ -75,22 +74,19 @@ const catalogSchema = {
   },
 };
 
-export default function ProductsPage() {
+type CatalogParams = Promise<{ category?: string | string[]; brand?: string | string[] }>;
+
+export default async function ProductsPage({ searchParams }: { searchParams: CatalogParams }) {
+  const { category, brand } = await searchParams;
+  const initialCategory = typeof category === "string" ? category : undefined;
+  const initialBrand = typeof brand === "string" ? brand : undefined;
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(catalogSchema) }}
       />
-      <Suspense
-        fallback={
-          <div className="py-32 text-center text-text-muted">
-            Loading products...
-          </div>
-        }
-      >
-        <ProductsFilterView />
-      </Suspense>
+      <ProductsFilterView key={JSON.stringify([initialCategory, initialBrand])} initialCategory={initialCategory} initialBrand={initialBrand} />
     </>
   );
 }

@@ -39,23 +39,36 @@ const faqs = [
 export function CinematicLanding() {
   return (
     <div className="home-page">
-      <section className="home-hero section-shell" aria-labelledby="hero-title">
-        <div className="home-hero-copy">
-          <p className="eyebrow">Crown Accumulator · Pakistan</p>
-          <h1 id="hero-title">Battery, Battery Plate &amp; Motorcycle Sprocket Manufacturing</h1>
-          <p className="home-hero-description">Crown Accumulator manufactures SOLO batteries, battery plates, and motorcycle sprockets for trade and industrial customers.</p>
-          <div className="home-hero-actions">
-            <Link className="button button-red" href="#product-range">Explore products <span aria-hidden="true">↗</span></Link>
-            <Link className="text-link" href="#quotation">Request a quotation</Link>
+      <section className="home-hero crown-hero" aria-labelledby="hero-title">
+        <div className="section-shell crown-hero-shell">
+          <div className="home-hero-copy">
+            <p className="eyebrow">Crown Accumulator · Pakistan</p>
+            <h1 id="hero-title">Powering progress.<br />Built to last.</h1>
+            <p className="home-hero-description">Batteries, battery plates and motorcycle sprockets.<br className="hero-break" /> Manufactured in Pakistan.</p>
+            <div className="home-hero-actions">
+              <Link className="button button-red" href="#product-range">Explore our products <span aria-hidden="true">↗</span></Link>
+              <Link className="text-link" href="/manufacturing">Our manufacturing</Link>
+            </div>
           </div>
         </div>
-        <Link href="/products/solo-mb-200" className="home-hero-product" aria-label="View SOLO MB 200 battery">
-          <div className="home-hero-image">
-            <Image src={productImages.mb200} alt="SOLO MB 200 battery with red lid" fill preload sizes="(max-width: 760px) 100vw, 48vw" className="product-photograph" />
-          </div>
-          <div className="home-hero-caption"><div><span>SOLO MB 200</span><p>12V · 130 Ah</p></div><span aria-hidden="true">↗</span></div>
-        </Link>
+        <div className="crown-hero-media">
+          <Image src="/images/factory/workshop.webp" alt="Metal mould and clamping equipment in the Crown workshop" fill preload sizes="(max-width: 760px) 100vw, 67vw" className="crown-hero-workshop" />
+          <Link href="/products/solo-mb-200" className="crown-hero-battery" aria-label="View the featured SOLO MB 200 battery">
+            <Image src="/images/showroom/solo-mb-200.webp" alt="" fill sizes="(max-width: 760px) 50vw, 31vw" />
+          </Link>
+        </div>
       </section>
+
+      <section className="section-shell product-index" id="product-range" aria-labelledby="product-index-title">
+        <div className="product-index-title"><p className="eyebrow">What we manufacture</p><h2 id="product-index-title">Engineering for the everyday.</h2></div>
+        <div className="product-index-links">
+          <Link href="/solo"><span>SOLO batteries</span><span aria-hidden="true">↗</span></Link>
+          <Link href="/battery-plates"><span>Battery plates</span><span aria-hidden="true">↗</span></Link>
+          <Link href="#motorcycle-sprockets"><span>Motorcycle sprockets</span><span aria-hidden="true">↗</span></Link>
+        </div>
+      </section>
+
+      <HomeProductCatalog batteries={batteries} plates={featuredPlates} />
 
       <section className="buyer-section brand-section" aria-labelledby="brands-title">
         <div className="section-shell">
@@ -68,7 +81,13 @@ export function CinematicLanding() {
         </div>
       </section>
 
-      <div id="product-range"><HomeProductCatalog batteries={batteries} plates={featuredPlates} /></div>
+      <section className="sprocket-feature" id="motorcycle-sprockets" aria-labelledby="sprocket-title">
+        <div className="section-shell sprocket-layout">
+          <div><p className="eyebrow">Motorcycle components</p><h2 id="sprocket-title">Sprockets made to the right fit.</h2><p>Start with the motorcycle model or a sample. Include the tooth count, chain pitch, mounting pattern and required quantity so we can review the fit.</p></div>
+          <Link className="button button-light" href="/manufacturing#sprockets">Discuss a sprocket requirement <span aria-hidden="true">↗</span></Link>
+        </div>
+      </section>
+
       <ClientsSection />
 
       <section className="buyer-section factory-section" aria-labelledby="factory-title">
@@ -78,11 +97,16 @@ export function CinematicLanding() {
             <p>Tooling and component photographs from our workshop archive. Discuss the production and inspection requirements for your own specification with our team.</p>
           </div>
           <div className="factory-photo-grid">
-            <figure><div><Image src="/images/factory/workshop-tooling.webp" alt="Workshop tooling with a metal mould and clamping mechanism" fill sizes="(max-width:760px) 100vw, 60vw" className="factory-photo" /></div><figcaption>Workshop tooling and mould detail</figcaption></figure>
-            <figure><div><Image src="/images/factory/cast-component-sample.webp" alt="Hand-held cast component sample beside workshop tooling" fill sizes="(max-width:760px) 100vw, 40vw" className="factory-photo" /></div><figcaption>Cast component sample from the workshop archive</figcaption></figure>
+            <figure><div><Image src="/images/factory/workshop.webp" alt="Workshop tooling with a metal mould and clamping mechanism" fill sizes="(max-width:760px) 100vw, 60vw" className="factory-photo" /></div><figcaption>Workshop tooling and mould detail</figcaption></figure>
+            <figure><div><Image src="/images/factory/workshop-inspection.webp" alt="Hand-held cast component sample beside workshop tooling" fill sizes="(max-width:760px) 100vw, 40vw" className="factory-photo" /></div><figcaption>Cast component sample from the workshop archive</figcaption></figure>
           </div>
-          <Link className="text-link" href="/manufacturing">Discuss a manufacturing requirement <span aria-hidden="true">↗</span></Link>
+          <Link className="text-link" href="/manufacturing">Explore our manufacturing <span aria-hidden="true">↗</span></Link>
         </div>
+      </section>
+
+      <section className="section-shell heritage-feature" aria-labelledby="heritage-title">
+        <div><p className="eyebrow">Our heritage</p><p className="heritage-year">{company.foundedYear}</p></div>
+        <div><h2 id="heritage-title">Decades of manufacturing experience.</h2><p>From battery plates to finished SOLO batteries, Crown brings component and product supply together for trade and industrial buyers.</p><Link className="text-link" href="/about">About Crown <span aria-hidden="true">↗</span></Link></div>
       </section>
 
       <section className="buyer-section comparison-section" aria-labelledby="comparison-title">
@@ -122,6 +146,11 @@ export function CinematicLanding() {
         </div>
       </section>
 
+      <section className="section-shell engineering-feature" aria-labelledby="engineering-title">
+        <div><p className="eyebrow">Quality & engineering</p><h2 id="engineering-title">Start with the details that matter.</h2></div>
+        <div><p>Confirm the drawing, sample, or label information before you order. Our technical library explains plate construction, lead-acid battery chemistry and testing terminology, so your team can prepare a clearer specification.</p><Link href="/research" className="text-link">Explore the research library <span aria-hidden="true">↗</span></Link></div>
+      </section>
+
       <section className="buyer-section ordering-section" aria-labelledby="ordering-title">
         <div className="section-shell">
           <div className="buyer-split-heading"><div><p className="eyebrow">Ordering information</p><h2 id="ordering-title">Agree the terms before you order.</h2></div><p>Each requirement starts with the product, specification, quantity, and delivery location. Ask for the current terms in your written quotation.</p></div>
@@ -149,6 +178,10 @@ export function CinematicLanding() {
           <div><p className="eyebrow">Buyer questions</p><h2 id="faq-title">Before you enquire.</h2><p className="buyer-copy">Practical answers to help you prepare the right requirement.</p></div>
           <div className="home-faq-list">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
         </div>
+      </section>
+      <section className="section-shell dealer-feature" aria-labelledby="dealer-title">
+        <div><p className="eyebrow">Trade supply</p><h2 id="dealer-title">For dealers and distributors.</h2></div>
+        <div><p>Tell us your market, preferred models, first order volume, and expected repeat demand. We can review availability, packing and delivery with you.</p><Link href="#quotation" className="text-link">Discuss trade supply <span aria-hidden="true">↗</span></Link></div>
       </section>
       <HomeQuotation />
     </div>

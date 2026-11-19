@@ -4,10 +4,9 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowRight } from "lucide-react";
 import { ClientsSection } from "@/components/company/ClientsSection";
-import { company, yearsInBusiness } from "@/data/company";
+import { company } from "@/data/company";
 import { productImages } from "@/data/product-images";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 export const metadata: Metadata = {
   title: "About Crown Accumulator | 40+ Years of Battery Manufacturing Heritage",
@@ -138,57 +137,9 @@ export default function AboutPage() {
       />
       <div className="bg-surface">
 
-      <section className="relative overflow-hidden bg-crown-navy py-20 sm:py-28 text-white">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src={productImages.mb200}
-            alt="SOLO MB 200 battery manufactured by Crown Accumulator"
-            fill
-            className="object-contain product-photograph"
-            priority
-          />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal direction="up">
-            <span className="font-display text-xs font-bold uppercase tracking-widest text-solo-red-light">
-              About Crown Accumulator
-            </span>
-            <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold text-white sm:text-6xl leading-tight">
-              Over Four Decades of Stored Energy Expertise
-            </h1>
-            <p className="mt-6 max-w-2xl text-base text-slate-300 sm:text-lg">
-              Since {company.foundedYear}, Crown Accumulator has grown into a leading industrial manufacturer — producing SOLO® batteries, battery plates, and precision sprockets for major OEMs across Pakistan.
-            </p>
-          </ScrollReveal>
-
-          <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-slate-800 pt-8">
-            <div>
-              <p className="font-display text-3xl font-bold text-white">
-                <AnimatedCounter value={yearsInBusiness()} suffix="+" />
-              </p>
-              <p className="text-xs uppercase text-slate-400 mt-1">Years in Industry</p>
-            </div>
-            <div>
-              <p className="font-display text-3xl font-bold text-solo-red-light">
-                <AnimatedCounter value={500} suffix="K+" />
-              </p>
-              <p className="text-xs uppercase text-slate-400 mt-1">Plates Monthly</p>
-            </div>
-            <div>
-              <p className="font-display text-3xl font-bold text-white">
-                <AnimatedCounter value={8} suffix="+" />
-              </p>
-              <p className="text-xs uppercase text-slate-400 mt-1">OEM Clients</p>
-            </div>
-            <div>
-              <p className="font-display text-3xl font-bold text-solo-red-light">
-                <AnimatedCounter value={200} suffix="+" />
-              </p>
-              <p className="text-xs uppercase text-slate-400 mt-1">Dealers Nationwide</p>
-            </div>
-          </div>
-        </div>
+      <section className="collection-hero section-shell">
+        <div><p className="eyebrow">About Crown Accumulator</p><h1>Manufacturing since {company.foundedYear}.</h1><p>Crown Accumulator manufactures SOLO batteries, battery plates, and motorcycle sprockets in Pakistan for trade and industrial customers.</p><Link className="button button-red" href="/manufacturing">Explore our manufacturing <span aria-hidden="true">↗</span></Link></div>
+        <div className="collection-hero-image manufacturing-photo"><Image src="/images/factory/workshop-inspection.webp" alt="Component sample beside metal tooling in the Crown workshop" fill preload sizes="(max-width: 760px) 90vw, 46vw" /></div>
       </section>
 
       <section id="products" className="py-20 sm:py-28">
@@ -239,7 +190,7 @@ export default function AboutPage() {
             {values.map((val, idx) => {
               return (
                 <ScrollReveal key={val.title} delay={idx * 0.1}>
-                  <div className="surface-card rounded-sm border border-border bg-white p-8 transition-shadow">
+                  <div className="surface-card py-4">
 
                     <h3 className="font-display text-xl font-bold text-text-primary">
                       {val.title}

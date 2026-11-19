@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getResearchArticle, researchArticles } from "@/data/research";
 import { formatDate } from "@/lib/utils";
-import { ArrowLeft } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -155,52 +154,25 @@ export default async function ResearchArticlePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      <article className="bg-surface pb-24">
-
-        <div className="bg-crown-navy py-16 text-white sm:py-20">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <Link
-              href="/research"
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-300 transition-colors hover:text-white mb-6"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back to Research Library
-            </Link>
-
-            <span className="block text-xs font-bold uppercase tracking-widest text-solo-red-light mb-2">
-              {article.category}
-            </span>
-            <h1 className="font-display text-3xl font-bold text-white sm:text-5xl leading-tight">
-              {article.title}
-            </h1>
-            <p className="mt-2 text-base text-slate-300">{article.subtitle}</p>
-            <p className="mt-4 text-xs text-slate-400">Published {formatDate(article.date)}</p>
-          </div>
-        </div>
-
-        <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="surface-card rounded-sm bg-white p-8 border border-border sm:p-12">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-sm mb-8">
-              <Image src={article.image} alt={article.imageAlt} fill className="object-contain product-photograph" priority sizes="100vw" />
+      <article className="editorial-article">
+        <header className="article-masthead">
+          <div className="section-shell article-masthead-layout">
+            <div className="article-headline">
+              <Link href="/research" className="article-back"><span aria-hidden="true">&larr; </span>Back to the research library</Link>
+              <p className="eyebrow">{article.category}</p>
+              <h1>{article.title}</h1>
+              <p className="article-deck">{article.subtitle}</p>
+              <div className="article-meta"><time dateTime={article.date}>{formatDate(article.date)}</time></div>
             </div>
-
-            <div>{renderContent(article.content)}</div>
-
-            {article.references.length > 0 && (
-              <div className="mt-12 rounded-sm bg-slate-50 p-6 border border-border">
-                <h3 className="font-display text-xs font-bold uppercase tracking-wider text-crown-navy">
-                  References &amp; Academic Standards
-                </h3>
-                <ul className="mt-4 space-y-2">
-                  {article.references.map((ref) => (
-                    <li key={ref} className="text-xs text-text-muted">
-                      — {ref}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <div className="article-photo"><Image src={article.image} alt={article.imageAlt} fill preload sizes="(max-width: 700px) 95vw, 43vw" /></div>
           </div>
+        </header>
+        <div className="article-reading">
+          {renderContent(article.content)}
+          {article.references.length > 0 && <section className="article-references" aria-labelledby="research-references">
+            <h2 className="font-display text-lg font-semibold" id="research-references">References &amp; academic standards</h2>
+            <ul>{article.references.map((ref) => <li key={ref}>{ref}</li>)}</ul>
+          </section>}
         </div>
       </article>
     </>
